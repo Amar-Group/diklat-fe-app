@@ -49,7 +49,7 @@ export default function LoginPage() {
           <div className="bg-white/20 rounded-xl p-1.5">
             <Hexagon className="size-6 text-white fill-white" />
           </div>
-          <span className="text-white font-bold text-xl">Cafe Admin</span>
+          <span className="text-white font-bold text-xl">Diklat Admin</span>
         </div>
 
         <div className="relative space-y-8">
@@ -71,7 +71,7 @@ export default function LoginPage() {
           </div>
         </div>
 
-        <p className="text-blue-300 text-xs relative">© 2025 Cafe Admin. All rights reserved.</p>
+        <p className="text-blue-300 text-xs relative">© 2025 Diklat Admin. All rights reserved.</p>
       </div>
 
       {/* Right form panel */}
@@ -82,7 +82,7 @@ export default function LoginPage() {
             <div className="bg-blue-600 rounded-lg p-1.5">
               <Hexagon className="size-5 text-white fill-white" />
             </div>
-            <span className="font-bold text-lg text-gray-900">Cafe Admin</span>
+            <span className="font-bold text-lg text-gray-900">Diklat Admin</span>
           </div>
 
           <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8">

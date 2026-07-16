@@ -6,7 +6,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ---
 
-# Cafe FE App — Agent Rules & Conventions
+# Diklat FE App — Agent Rules & Conventions
 
 > Baca file ini SEBELUM menulis kode apa pun di project ini.
 > File ini adalah sumber kebenaran untuk semua konvensi, arsitektur, dan pattern yang berlaku.
@@ -15,7 +15,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 | Key              | Value                                            |
 | ---------------- | ------------------------------------------------ |
-| **Nama**         | Cafe FE App (Amar Cafe Frontend)                 |
+| **Nama**         | Diklat FE App (Amar Diklat Frontend)                 |
 | **Stack**        | Next.js 16 (App Router) · React 19 · TypeScript 6 |
 | **Styling**      | Tailwind CSS v3 + CSS Variables (oklch) + shadcn/ui (base-nova style) |
 | **State**        | Zustand v5 (global) · TanStack React Query v5 (server state) |
@@ -29,7 +29,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 | **Select**       | react-select (untuk multi-select / searchable)   |
 | **Theme**        | next-themes (light/dark via class strategy)      |
 | **Package Mgr**  | Bun                                              |
-| **Backend API**  | REST API di `cafe-be-app` (default: http://localhost:4000) |
+| **Backend API**  | REST API di `diklat-be-app` (default: http://localhost:4000) |
 | **Bahasa UI**    | **Bahasa Indonesia** untuk semua label, placeholder, notifikasi, dan pesan error |
 
 ## 2. Architecture Overview
@@ -59,9 +59,9 @@ Project menggunakan Next.js **route groups** `(groupName)` untuk memisahkan layo
 
 | Group          | Path Prefix   | Layout Behavior                              | Auth Required |
 | -------------- | ------------- | -------------------------------------------- | ------------- |
-| `(admin)`      | `/dashboard`, `/cafe/*`, `/billiard/*`, dll | Sidebar + Header + AuthGuard | ✅ Ya |
+| `(admin)`      | `/dashboard`, `/diklat/*`, `/billiard/*`, dll | Sidebar + Header + AuthGuard | ✅ Ya |
 | `(admin)/(rbac)` | `/master-data/*`, `/web-management/*`, `/transaction/*`, `/billiard/schedules` (rbac) | RBAC permission check per route | ✅ Ya |
-| `(admin)/cafe` | `/cafe/*` | Cafe pages (di luar RBAC group) | ✅ Ya |
+| `(admin)/diklat` | `/diklat/*` | Diklat pages (di luar RBAC group) | ✅ Ya |
 | `(admin)/billiard` | `/billiard/*` | Billiard pages (di luar RBAC group) | ✅ Ya |
 | `(auth)`       | `/auth/*`     | Minimal layout (bg #F8F9FD)                  | ❌ Tidak |
 | `(public)`     | `/`           | No layout wrapper                            | ❌ Tidak |
@@ -117,10 +117,10 @@ src/utils/           # Global utility/helper functions (lintas feature)
 | **RBAC** | `features/rbac/role/` | CRUD role |
 | **RBAC** | `features/rbac/menu/` | CRUD menu (sidebar items) |
 | **RBAC** | `features/rbac/role-permission/` | CRUD role-permission mapping |
-| **Cafe** | `features/cafe/dish-category/` | CRUD kategori makanan |
-| **Cafe** | `features/cafe/dish/` | CRUD menu makanan |
-| **Cafe** | `features/cafe/dish-image/` | CRUD galeri gambar makanan |
-| **Cafe** | `features/cafe/dish-order/` | CRUD pesanan + detail + payment |
+| **Diklat** | `features/diklat/dish-category/` | CRUD kategori makanan |
+| **Diklat** | `features/diklat/dish/` | CRUD menu makanan |
+| **Diklat** | `features/diklat/dish-image/` | CRUD galeri gambar makanan |
+| **Diklat** | `features/diklat/dish-order/` | CRUD pesanan + detail + payment |
 | **Billiard** | `features/billiard/table-type/` | CRUD tipe meja billiard |
 | **Billiard** | `features/billiard/table/` | CRUD meja billiard |
 | **Billiard** | `features/billiard/table-image/` | CRUD galeri gambar meja |
@@ -152,10 +152,10 @@ src/stores/
 
 **Feature stores** (di dalam masing-masing feature module):
 ```
-src/features/cafe/dish-category/store.ts
-src/features/cafe/dish/store.ts
-src/features/cafe/dish-image/store.ts
-src/features/cafe/dish-order/store.ts       # Custom: detail modal + payment modal
+src/features/diklat/dish-category/store.ts
+src/features/diklat/dish/store.ts
+src/features/diklat/dish-image/store.ts
+src/features/diklat/dish-order/store.ts       # Custom: detail modal + payment modal
 src/features/billiard/table-type/store.ts
 src/features/billiard/table/store.ts
 src/features/billiard/table-image/store.ts
@@ -289,7 +289,7 @@ Backend selalu mengembalikan format:
 Setiap halaman admin CRUD WAJIB dipisah menjadi beberapa file modular untuk menghindari *monolithic components* dan memisahkan *concern*:
 
 ```
-src/app/(admin)/cafe/entities/
+src/app/(admin)/diklat/entities/
 ├── page.tsx                      # Orchestrator: Fetch data, render header, table & modals
 └── _components/                  # Komponen khusus halaman ini
     ├── entity-columns.tsx        # Definisi kolom tabel (memanggil Zustand store untuk action)
@@ -458,7 +458,7 @@ const handleMidtransPayment = async () => {
 | Route page        | `page.tsx` (Next.js convention)| -                           |
 | Layout            | `layout.tsx`                  | -                            |
 | Store (global)    | `use-<name>.ts`               | `use-auth.ts`, `use-store.ts`|
-| Store (feature)   | `store.ts`                    | `features/cafe/dish/store.ts`|
+| Store (feature)   | `store.ts`                    | `features/diklat/dish/store.ts`|
 | Constants         | SCREAMING_SNAKE_CASE          | `DUMMY_USERS`, `API_BASE_URL`|
 
 ## 5. Environment Variables

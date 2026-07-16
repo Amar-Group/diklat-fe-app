@@ -1,7 +1,7 @@
 import { API_BASE_URL, APP_TOKEN } from "./config";
 
 /**
- * Global HTTP client wrapper for the cafe-be-app API.
+ * Global HTTP client wrapper for the diklat-be-app API.
  * Attaches X-App-Token and Authorization headers automatically.
  */
 

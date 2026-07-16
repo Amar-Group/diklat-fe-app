@@ -1,6 +1,6 @@
-# Cafe Frontend App
+# Diklat Frontend App
 
-Aplikasi frontend untuk manajemen cafe, dibangun dengan **Next.js 16** (App Router).
+Aplikasi frontend untuk manajemen diklat, dibangun dengan **Next.js 16** (App Router).
 
 ## Tech Stack
 
@@ -44,5 +44,5 @@ Open [http://localhost:3000](http://localhost:3000) to see the app.
 - ✅ 23 komponen UI (Shadcn/UI base-nova)
 - ✅ Showcase: base-ui, extended-ui, charts, forms, tables, icons
 - ✅ Halaman auth, error, dan standalone
-- 🏗️ Landing page cafe (dalam pengembangan)
+- 🏗️ Landing page diklat (dalam pengembangan)
 - 🏗️ Feature modules, API layer, authentication

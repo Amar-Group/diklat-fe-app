@@ -10,7 +10,7 @@ const initialEvents = [
   { id: 1, title: "Product Launch Sync", date: 15, type: "primary", time: "10:00 AM", location: "Google Meet" },
   { id: 2, title: "Design Review", date: 18, type: "success", time: "02:00 PM", location: "Conference Room B" },
   { id: 3, title: "Client Workshop", date: 22, type: "warning", time: "09:30 AM", location: "HQ Office" },
-  { id: 4, title: "Team Lunch", date: 25, type: "info", time: "12:30 PM", location: "Downtown Cafe" }
+  { id: 4, title: "Team Lunch", date: 25, type: "info", time: "12:30 PM", location: "Downtown Diklat" }
 ];
 
 export default function CalendarPage() {

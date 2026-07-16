@@ -2,7 +2,7 @@
 
 ## Overview
 
-Aplikasi **Cafe FE App** — Admin dashboard untuk manajemen cafe (Amar Cafe Moncongloe).
+Aplikasi **Diklat FE App** — Admin dashboard untuk manajemen diklat (Amar Diklat Moncongloe).
 Dibangun dengan **Next.js 16 App Router**, **React 19**, **TypeScript**, **Tailwind CSS v3**, dan **shadcn/ui**.
 
 ## Tech Stack
@@ -38,7 +38,7 @@ NEXT_PUBLIC_APP_TOKEN=<token>                 # X-App-Token for API auth
 ## Root Files
 
 ```
-cafe-fe-app/
+diklat-fe-app/
 ├── AGENTS.md             # Agent rules & coding conventions
 ├── STRUCTURE.md          # This file — project structure docs
 ├── package.json          # Dependencies & scripts (dev/build/start/lint)
@@ -88,7 +88,7 @@ src/
 │   │   │           │   └── payment-columns.tsx
 │   │   │           └── page.tsx
 │   │   │
-│   │   ├── cafe/               # Cafe Management pages (di luar RBAC group)
+│   │   ├── diklat/               # Diklat Management pages (di luar RBAC group)
 │   │   │   ├── dish-categories/ # CRUD Dish Categories
 │   │   │   │   ├── _components/
 │   │   │   │   │   ├── dish-category-columns.tsx
@@ -156,7 +156,7 @@ src/
 │   │   ├── menu/               # Halaman menu makanan statis & dinamis
 │   │   ├── order/              # Halaman checkout pesanan + Midtrans Snap integration
 │   │   ├── reservation/        # Halaman reservasi meja billiard + Midtrans Snap integration
-│   │   └── page.tsx            # Homepage (Landing Page Amar Cafe)
+│   │   └── page.tsx            # Homepage (Landing Page Amar Diklat)
 │   │
 │   ├── (standalone)/           # ❌ No auth — Full-page standalone pages
 │   │   ├── layout.tsx          # Centered layout
@@ -256,7 +256,7 @@ src/
 │   │       ├── constants/      # DUMMY_ROLE_PERMISSIONS
 │   │       └── utils/          # (kosong)
 │   │
-│   ├── cafe/                   # Cafe domain features
+│   ├── diklat/                   # Diklat domain features
 │   │   ├── dish-category/      # Dish category feature module
 │   │   │   ├── types/          # DishCategory types
 │   │   │   ├── services/       # DishCategoryService (CRUD)
@@ -453,9 +453,9 @@ Project menggunakan Next.js **route groups** `(groupName)` untuk memisahkan layo
 
 | Group          | Path Prefix   | Layout Behavior                              | Auth Required |
 | -------------- | ------------- | -------------------------------------------- | ------------- |
-| `(admin)`      | `/dashboard`, `/cafe/*`, `/billiard/*`, dll | Sidebar + Header + AuthGuard | ✅ Ya |
+| `(admin)`      | `/dashboard`, `/diklat/*`, `/billiard/*`, dll | Sidebar + Header + AuthGuard | ✅ Ya |
 | `(admin)/(rbac)` | `/master-data/*`, `/web-management/*`, `/transaction/*`, `/billiard/schedules` (via rbac) | RBAC permission check per route | ✅ Ya |
-| `(admin)/cafe` | `/cafe/*` | Cafe pages (dish-categories, dishes, dish-orders) — di luar RBAC group | ✅ Ya |
+| `(admin)/diklat` | `/diklat/*` | Diklat pages (dish-categories, dishes, dish-orders) — di luar RBAC group | ✅ Ya |
 | `(admin)/billiard` | `/billiard/*` | Billiard pages (table-types, tables, reservations, schedules) — di luar RBAC group | ✅ Ya |
 | `(auth)`       | `/auth/*`     | Minimal layout (bg #F8F9FD)                  | ❌ Tidak |
 | `(public)`     | `/`           | No layout wrapper                            | ❌ Tidak |
@@ -488,10 +488,10 @@ Project menggunakan Next.js **route groups** `(groupName)` untuk memisahkan layo
 | **RBAC** | `features/rbac/role/` | `role-service.ts`, `use-role.ts` |
 | **RBAC** | `features/rbac/menu/` | `menu-service.ts`, `use-menu.ts` |
 | **RBAC** | `features/rbac/role-permission/` | `role-permission-service.ts`, `use-role-permission.ts` |
-| **Cafe** | `features/cafe/dish-category/` | `store.ts`, service, hooks, types |
-| **Cafe** | `features/cafe/dish/` | `store.ts`, service, hooks, types |
-| **Cafe** | `features/cafe/dish-image/` | `store.ts`, service, hooks, types |
-| **Cafe** | `features/cafe/dish-order/` | `store.ts` (custom: detail + payment modals), service, hooks, types |
+| **Diklat** | `features/diklat/dish-category/` | `store.ts`, service, hooks, types |
+| **Diklat** | `features/diklat/dish/` | `store.ts`, service, hooks, types |
+| **Diklat** | `features/diklat/dish-image/` | `store.ts`, service, hooks, types |
+| **Diklat** | `features/diklat/dish-order/` | `store.ts` (custom: detail + payment modals), service, hooks, types |
 | **Billiard** | `features/billiard/table-type/` | `store.ts`, service, hooks, types, constants |
 | **Billiard** | `features/billiard/table/` | `store.ts`, service, hooks, types, constants |
 | **Billiard** | `features/billiard/table-image/` | `store.ts`, service, hooks, types, constants |
