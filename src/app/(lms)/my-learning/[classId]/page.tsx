@@ -56,10 +56,21 @@ export default function SyllabusPage() {
              <button className="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-xl shadow-lg shadow-primary/30 transition-all hover:-translate-y-0.5">
                Lanjutkan Belajar
              </button>
-             <button className={`font-semibold py-3 px-8 rounded-xl transition-all ${progressPercent === 100 ? "bg-green-100 hover:bg-green-200 text-green-700" : "bg-slate-100 hover:bg-slate-200 text-slate-700 cursor-not-allowed"}`} disabled={progressPercent < 100}>
-               <Lock className={`size-4 inline mr-2 ${progressPercent === 100 ? "hidden" : ""}`} /> 
-               {progressPercent === 100 ? "Unduh Sertifikat" : "Sertifikat Terkunci"}
-             </button>
+             <Link href={`/my-learning/${classId}/sessions`} className="bg-blue-50 text-blue-700 hover:bg-blue-100 font-bold py-3 px-8 rounded-xl transition-all text-center">
+               Jadwal & Absensi
+             </Link>
+             <Link href={`/my-learning/${classId}/evaluation`} className="bg-amber-50 text-amber-700 hover:bg-amber-100 font-bold py-3 px-8 rounded-xl transition-all text-center">
+               Beri Ulasan Kelas
+             </Link>
+             {progressPercent === 100 ? (
+               <Link href={`/my-learning/${classId}/certificate`} className="bg-green-100 hover:bg-green-200 text-green-700 font-bold py-3 px-8 rounded-xl transition-all text-center">
+                 Unduh Sertifikat
+               </Link>
+             ) : (
+               <button className="bg-slate-100 text-slate-500 font-semibold py-3 px-8 rounded-xl cursor-not-allowed flex items-center justify-center gap-2" disabled>
+                 <Lock className="size-4" /> Sertifikat Terkunci
+               </button>
+             )}
           </div>
         </div>
         <div className="relative z-10 mt-6 h-2 w-full bg-slate-100 rounded-full overflow-hidden">
