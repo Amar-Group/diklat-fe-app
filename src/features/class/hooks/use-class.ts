@@ -6,6 +6,7 @@ export const CLASS_KEYS = {
   all: ["classes"] as const,
   lists: () => [...CLASS_KEYS.all, "list"] as const,
   list: (filters: string) => [...CLASS_KEYS.lists(), { filters }] as const,
+  myLearning: () => [...CLASS_KEYS.all, "myLearning"] as const,
   details: () => [...CLASS_KEYS.all, "detail"] as const,
   detail: (id: number) => [...CLASS_KEYS.details(), id] as const,
 };
@@ -15,6 +16,16 @@ export function useClasses() {
     queryKey: CLASS_KEYS.lists(),
     queryFn: async () => {
       const res = await ClassService.getAll();
+      return res.data;
+    },
+  });
+}
+
+export function useMyLearning() {
+  return useQuery({
+    queryKey: CLASS_KEYS.myLearning(),
+    queryFn: async () => {
+      const res = await ClassService.getMyLearning();
       return res.data;
     },
   });

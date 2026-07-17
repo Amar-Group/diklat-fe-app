@@ -20,6 +20,7 @@ import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 import { useStore } from "@/stores/use-store";
 import { useAuthStore } from "@/stores/use-auth";
+import { useQueryClient } from "@tanstack/react-query";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -37,8 +38,11 @@ export function AdminHeader() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
+  const queryClient = useQueryClient();
+
   const handleLogout = () => {
     clearAuth();
+    queryClient.clear();
     router.push("/auth/login");
   };
 

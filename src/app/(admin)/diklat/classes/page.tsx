@@ -16,6 +16,8 @@ import { useClassStore } from "@/features/class/store";
 import { useClassColumns } from "./_components/class-columns";
 import { ClassFormModal } from "./_components/class-form-modal";
 import { DeleteConfirmModal } from "@/components/shared/delete-confirm-modal";
+import { ClassMembersModal } from "./_components/class-members-modal";
+import { useState } from "react";
 
 export default function ClassesPage() {
   const { data: classes = [], isLoading } = useClasses();
@@ -24,8 +26,10 @@ export default function ClassesPage() {
   const permissions = usePermissions();
 
   const { openCreate, deleteId, closeDelete } = useClassStore();
+  
+  const [membersModalData, setMembersModalData] = useState<any>(null);
 
-  const columns = useClassColumns({ permissions });
+  const columns = useClassColumns({ permissions, onManageMembers: setMembersModalData });
 
   const handleDelete = async () => {
     if (!deleteId) return;
@@ -84,6 +88,7 @@ export default function ClassesPage() {
       </Card>
 
       <ClassFormModal />
+      <ClassMembersModal isOpen={!!membersModalData} onClose={() => setMembersModalData(null)} classData={membersModalData} />
 
       <DeleteConfirmModal
         open={deleteId !== null}

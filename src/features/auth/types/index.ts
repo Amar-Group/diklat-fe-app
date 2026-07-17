@@ -10,6 +10,7 @@ export type AuthUser = {
   email: string;
   name: string;
   role_id: number;
+  role_code?: string;
 };
 
 export type LoginResponse = {

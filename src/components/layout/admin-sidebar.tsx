@@ -33,6 +33,9 @@ import * as LucideIcons from "lucide-react";
 
 import { useStore } from "@/stores/use-store";
 import { useUserNavigation } from "@/features/rbac/user/hooks/use-user";
+import { useRouter } from "next/navigation";
+import { useAuthStore } from "@/stores/use-auth";
+import { useQueryClient } from "@tanstack/react-query";
 
 const overviewLinks = [
   { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
@@ -176,6 +179,15 @@ export function AdminSidebar() {
   const toggleSidebar = useStore((state) => state.toggleSidebar);
   const [expandedMenus, setExpandedMenus] = useState<Record<string, boolean>>({});
   const { data: navItems = [], isLoading: isLoadingNav } = useUserNavigation();
+  const router = useRouter();
+  const { clearAuth } = useAuthStore();
+  const queryClient = useQueryClient();
+
+  const handleLogout = () => {
+    clearAuth();
+    queryClient.clear();
+    router.push("/auth/login");
+  };
 
   const filteredNavItems = React.useMemo(() => {
     function filterItems(items: any[]) {
@@ -363,7 +375,7 @@ export function AdminSidebar() {
                 <span>Help</span>
               </button>
             )}
-            <button className="text-muted-foreground hover:text-foreground transition-colors" title={!isSidebarOpen ? "Log Out" : undefined}>
+            <button onClick={handleLogout} className="text-muted-foreground hover:text-foreground transition-colors" title={!isSidebarOpen ? "Log Out" : undefined}>
               <LogOut className="size-5" />
             </button>
           </div>

@@ -28,7 +28,11 @@ const topProducts = [
   { name: "Magic Keyboard", category: "Accessories", sales: 1420, revenue: "$420K", trend: "+15%" },
 ];
 
-export default function DashboardPage() {
+import { useAuthStore } from "@/stores/use-auth";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+
+function AdminDashboard() {
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -214,4 +218,53 @@ export default function DashboardPage() {
       </div>
     </div>
   );
+}
+
+
+function InstructorDashboard() {
+  return (
+    <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-bold text-foreground">Dashboard Instruktur</h1>
+          <p className="text-muted-foreground mt-1">Selamat datang kembali! Berikut adalah jadwal kelas Anda.</p>
+        </div>
+      </div>
+      
+      <div className="bg-card p-6 rounded-2xl border border-border shadow-sm">
+        <div className="flex items-center gap-4 mb-4">
+          <div className="p-3 bg-blue-50 dark:bg-blue-500/10 text-blue-600 rounded-xl">
+            <Activity className="size-6" />
+          </div>
+          <div>
+            <h2 className="text-lg font-bold text-foreground">Sesi Mendatang</h2>
+            <p className="text-sm text-muted-foreground">Anda belum memiliki jadwal mengajar terdekat.</p>
+          </div>
+        </div>
+        <button className="text-sm font-medium text-blue-600 hover:underline">
+          Lihat seluruh jadwal di menu Logistik & Operasional
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export default function DashboardPage() {
+  const user = useAuthStore((s) => s.user);
+  const router = useRouter();
+  
+  useEffect(() => {
+    if (user?.role_id === 4) {
+      router.replace("/programs");
+    }
+  }, [user, router]);
+
+  if (!user) return null;
+  if (user.role_id === 4) return null; // blocked
+  
+  if (user.role_id === 3) {
+    return <InstructorDashboard />;
+  }
+
+  return <AdminDashboard />;
 }
