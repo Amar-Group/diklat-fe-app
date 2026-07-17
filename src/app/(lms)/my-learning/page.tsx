@@ -55,10 +55,10 @@ export default function MyLearningDashboard() {
                   <div className="mt-6 space-y-2">
                     <div className="flex justify-between text-sm">
                       <span className="text-muted-foreground font-medium">Progres Belajar</span>
-                      <span className="font-bold text-slate-700">0%</span>
+                      <span className="font-bold text-slate-700">{cls.progress_percent || 0}%</span>
                     </div>
                     <div className="h-2.5 bg-slate-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-primary w-0 rounded-full transition-all duration-1000 ease-out"></div>
+                      <div className="h-full bg-primary rounded-full transition-all duration-1000" style={{ width: `${cls.progress_percent || 0}%` }}></div>
                     </div>
                   </div>
                 </div>

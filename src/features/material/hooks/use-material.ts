@@ -13,6 +13,22 @@ export function useMaterials() {
   });
 }
 
+export function useMarkMaterialCompleted() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async (materialId: number) => {
+      const res = await apiClient<ApiResponse<any>>(`/api/materials/my-learning/${materialId}/progress`, {
+        method: "POST",
+      });
+      return res.data;
+    },
+    onSuccess: () => {
+      // Invalidate class syllabus query to refresh progress
+      queryClient.invalidateQueries({ queryKey: ["classes"] });
+    },
+  });
+}
+
 export function useCreateMaterial() {
   const queryClient = useQueryClient();
   return useMutation({

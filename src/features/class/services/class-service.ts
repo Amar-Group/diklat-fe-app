@@ -11,6 +11,10 @@ export class ClassService {
     return apiClient<ApiResponse<Class[]>>("/api/classes/my-learning");
   }
 
+  static async getSyllabus(id: number): Promise<ApiResponse<any>> {
+    return apiClient<ApiResponse<any>>(`/api/classes/${id}/syllabus`);
+  }
+
   static async getById(id: number): Promise<ApiResponse<Class>> {
     return apiClient<ApiResponse<Class>>(`/api/classes/${id}`);
   }

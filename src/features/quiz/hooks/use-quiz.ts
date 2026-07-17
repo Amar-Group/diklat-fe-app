@@ -18,6 +18,17 @@ export function useQuizs() {
   });
 }
 
+export function useQuiz(id: number) {
+  return useQuery({
+    queryKey: QUIZ_KEYS.detail(id),
+    queryFn: async () => {
+      const res = await QuizService.getById(id);
+      return res.data;
+    },
+    enabled: !!id,
+  });
+}
+
 export function useCreateQuiz() {
   const queryClient = useQueryClient();
   return useMutation({

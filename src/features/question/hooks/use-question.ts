@@ -8,11 +8,11 @@ export const QUESTION_KEYS = {
   detail: (id: number) => [...QUESTION_KEYS.all, "detail", id] as const,
 };
 
-export function useQuestions() {
+export function useQuestions(quizId?: number) {
   return useQuery({
-    queryKey: QUESTION_KEYS.lists(),
+    queryKey: [...QUESTION_KEYS.lists(), quizId],
     queryFn: async () => {
-      const res = await QuestionService.getAll();
+      const res = await QuestionService.getAll(quizId);
       return res.data;
     },
   });

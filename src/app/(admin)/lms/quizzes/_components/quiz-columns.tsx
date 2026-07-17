@@ -2,7 +2,8 @@
 
 import { useMemo } from "react";
 import type { ColumnDef } from "@tanstack/react-table";
-import { Edit, Trash2 } from "lucide-react";
+import { Edit, Trash2, List } from "lucide-react";
+import Link from "next/link";
 import type { Quiz } from "@/features/quiz/types";
 import { useQuizStore } from "@/features/quiz/store";
 
@@ -41,6 +42,9 @@ export function useQuizColumns({ permissions }: UseQuizColumnsProps) {
           if (!permissions.can_update && !permissions.can_delete) return <span className="text-muted-foreground text-xs">-</span>;
           return (
             <div className="flex items-center gap-1">
+              <Link href={`/lms/quizzes/${row.original.id}/questions`} className="p-1.5 rounded-md hover:bg-blue-50 text-muted-foreground hover:text-blue-600 transition-colors" title="Kelola Soal">
+                <List className="size-3.5" />
+              </Link>
               {permissions.can_update && (
                 <button onClick={() => openEdit(row.original)} className="p-1.5 rounded-md hover:bg-muted text-muted-foreground hover:text-foreground transition-colors" title="Edit">
                   <Edit className="size-3.5" />

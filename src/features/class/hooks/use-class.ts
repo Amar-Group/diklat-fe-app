@@ -31,6 +31,17 @@ export function useMyLearning() {
   });
 }
 
+export function useClassSyllabus(classId: number) {
+  return useQuery({
+    queryKey: [...CLASS_KEYS.detail(classId), "syllabus"],
+    queryFn: async () => {
+      const res = await ClassService.getSyllabus(classId);
+      return res.data;
+    },
+    enabled: !!classId,
+  });
+}
+
 export function useClass(id: number, enabled = true) {
   return useQuery({
     queryKey: CLASS_KEYS.detail(id),
