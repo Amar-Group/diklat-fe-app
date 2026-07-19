@@ -14,16 +14,19 @@ export function PublicFooter() {
                 <span className="text-white font-bold font-display text-2xl leading-none">HA</span>
               </div>
               <div>
-                <h3 className="font-display font-bold text-2xl tracking-tight text-white">
-                  Harapan Amar
+                <h3 className="font-display font-bold text-xl tracking-tight text-white">
+                  PT Harapan Amar Jaya
                 </h3>
-                <p className="text-sm text-slate-400">Jaya Training Center</p>
               </div>
             </Link>
-            <p className="text-slate-400 text-base leading-relaxed max-w-sm">
-              Platform Diklat Terintegrasi untuk Pelatihan, Sertifikasi, dan Pengembangan Kompetensi Karyawan. 
-              Membangun SDM unggul untuk masa depan bisnis yang berkelanjutan.
-            </p>
+            <div className="text-slate-400 text-sm leading-relaxed max-w-sm space-y-2">
+              <p>NIB: 0411240089853</p>
+              <p>Bidang Keahlian: Pengembangan Kompetensi</p>
+              <p>
+                Platform Diklat Terintegrasi untuk Pelatihan, Sertifikasi, dan Pengembangan Kompetensi Karyawan. 
+                Membangun SDM unggul untuk masa depan bisnis yang berkelanjutan.
+              </p>
+            </div>
           </div>
 
           {/* Perusahaan */}
@@ -55,19 +58,15 @@ export function PublicFooter() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-[#F97316] shrink-0 mt-0.5" />
-                <span>Jl. Poros Moncongloe No. 88, Maros, Sulawesi Selatan</span>
+                <span>Perumahan Telaga Kahuripan BIP A7 No. 26 Jl. Parung Raya Bogor</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-[#F97316] shrink-0" />
-                <span>halo@harapanamar.com</span>
+                <span>ptharapanamarjaya@gmail.com</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-[#F97316] shrink-0" />
-                <span>(0411) 123-4567</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <MessageCircle className="h-5 w-5 text-[#F97316] shrink-0" />
-                <span>+62 812-3456-7890</span>
+                <span>082210414091</span>
               </li>
             </ul>
           </div>

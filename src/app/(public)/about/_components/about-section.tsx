@@ -59,12 +59,23 @@ export function AboutSection() {
             </h2>
             
             <p className="text-slate-600 mb-6 text-lg leading-relaxed">
-              <strong className="text-slate-800">PT HARAPAN AMAR JAYA</strong> merupakan penyelenggara program pendidikan dan pelatihan yang berfokus pada peningkatan kompetensi sumber daya manusia.
+              <strong className="text-slate-800">PT HARAPAN AMAR JAYA</strong> Adalah Badan Hukum yang bergerak dalam  Penyedia Sumber Daya manusia dan Manajemen Fungsi Sumber Daya Manusia, Pelatihan kerja Teknologi informasi dan komunikasi Perusahaan, Pelatihan Kerja bisnis dan manajemen Perusahaan, Pelatihan kerja Perusahaan lainnya, dan Pendidikan dan pelatihan Pemerintah.
             </p>
             
-            <p className="text-slate-600 mb-10 text-lg leading-relaxed">
-              Kami memadukan pendekatan teknologi melalui LMS yang handal, kelas tatap muka yang interaktif, serta program sertifikasi standar industri untuk memastikan setiap alumni siap menghadapi tantangan dunia kerja modern.
-            </p>
+            <div className="mb-8 space-y-4">
+              <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                <h3 className="font-bold text-[#1E1B4B] text-lg mb-2">Visi</h3>
+                <p className="text-slate-600 leading-relaxed">
+                  Menjadi lembaga pelatihan terdepan yang menghasilkan sumber daya manusia kompeten, kreatif, dan berdaya saing tinggi.
+                </p>
+              </div>
+              <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                <h3 className="font-bold text-[#1E1B4B] text-lg mb-2">Misi</h3>
+                <p className="text-slate-600 leading-relaxed">
+                  Menyelenggarakan program pelatihan berkualitas sesuai standar industri, membekali peserta dengan keterampilan praktis, dan memperluas jaringan penempatan kerja.
+                </p>
+              </div>
+            </div>
 
             <div className="flex flex-wrap gap-4">
               <Button className="bg-[#1E1B4B] hover:bg-[#312E81] text-white">

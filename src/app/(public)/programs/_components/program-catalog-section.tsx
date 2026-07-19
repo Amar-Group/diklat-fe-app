@@ -8,27 +8,75 @@ import { motion } from "framer-motion";
 export function ProgramCatalogSection() {
   const programs = [
     {
-      title: "Pelatihan Kewirausahaan Purnabakti",
+      title: "Manajemen ASN",
       duration: "3 Hari",
       method: "Hybrid",
       certification: "BNSP / Internal",
-      category: "Kewirausahaan",
+      category: "Manajemen",
       image: "bg-slate-200"
     },
     {
-      title: "Sertifikasi Digital Marketing Specialist",
+      title: "Pelatihan Pra Pensiun",
       duration: "5 Hari",
-      method: "Online",
-      certification: "BNSP",
-      category: "Digital",
+      method: "Offline",
+      certification: "Sertifikat",
+      category: "Pengembangan Diri",
       image: "bg-slate-200"
     },
     {
-      title: "Leadership Development Program",
+      title: "Pelatihan kapasitas Perangkat Desa",
+      duration: "4 Hari",
+      method: "Offline",
+      certification: "Sertifikat",
+      category: "Pemerintahan",
+      image: "bg-slate-200"
+    },
+    {
+      title: "Pemrograman Website & Aplikasi",
       duration: "2 Bulan",
       method: "LMS Mandiri",
-      certification: "Sertifikat Penyelesaian",
-      category: "Manajemen",
+      certification: "BNSP",
+      category: "IT & Komputer",
+      image: "bg-slate-200"
+    },
+    {
+      title: "Pelatihan Motivasi dan Pengembangan diri, pengembangan karier",
+      duration: "2 Hari",
+      method: "Online",
+      certification: "Internal",
+      category: "Pengembangan Diri",
+      image: "bg-slate-200"
+    },
+    {
+      title: "Pelatihan Programming, Multimedia, data base dan system analyst",
+      duration: "3 Bulan",
+      method: "Hybrid",
+      certification: "BNSP",
+      category: "IT & Komputer",
+      image: "bg-slate-200"
+    },
+    {
+      title: "Pelatihan IT Governance, Public Relation, Publik Speaking",
+      duration: "4 Hari",
+      method: "Hybrid",
+      certification: "Sertifikat",
+      category: "Komunikasi",
+      image: "bg-slate-200"
+    },
+    {
+      title: "Pelatihan kompensasi Perusahaan/karyawan",
+      duration: "3 Hari",
+      method: "Online",
+      certification: "Sertifikat",
+      category: "HR & Bisnis",
+      image: "bg-slate-200"
+    },
+    {
+      title: "Pelatihan Pajak Perusahaan",
+      duration: "5 Hari",
+      method: "Offline",
+      certification: "Brevet",
+      category: "Keuangan",
       image: "bg-slate-200"
     }
   ];

@@ -52,47 +52,54 @@ export function PublicNavbar() {
               <div className="h-10 w-10 rounded-lg bg-[#1E1B4B] flex items-center justify-center">
                 <span className="text-white font-bold font-display text-xl leading-none">HA</span>
               </div>
-              <span className="font-display font-bold text-xl tracking-tight text-[#1E1B4B]">
-                Harapan Amar
+              <span className="font-display font-bold text-lg tracking-tight text-[#1E1B4B]">
+                PT Harapan Amar Jaya
               </span>
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
           <nav className="hidden xl:flex items-center gap-6">
             <Link href="/" className={navLinkClass("/")}>Home</Link>
-            <Link href="/about" className={navLinkClass("/about")}>Tentang Kami</Link>
             
-            {/* Dropdown Program Diklat */}
+            {/* Profil */}
             <div className="relative group">
-              <button className={`flex items-center gap-1 transition-colors py-2 ${isActive("/programs") ? 'text-[#F97316] font-semibold text-sm' : 'text-sm font-medium text-slate-600 hover:text-[#F97316]'}`}>
-                Program Diklat <ChevronDown className="h-4 w-4" />
+              <button className={`flex items-center gap-1 transition-colors py-2 ${isActive("/about") || isActive("/instructors") ? 'text-[#F97316] font-semibold text-sm' : 'text-sm font-medium text-slate-600 hover:text-[#F97316]'}`}>
+                Profil <ChevronDown className="h-4 w-4" />
               </button>
               <div className="absolute top-full left-0 mt-1 w-48 rounded-md bg-white shadow-lg border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <div className="py-2">
-                  <Link href="/programs" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#F97316]">Semua Program</Link>
-                  <Link href="/programs" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#F97316]">Detail Program</Link>
+                  <Link href="/about" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#F97316]">Tentang Kami & Visi Misi</Link>
+                  <Link href="/instructors" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#F97316]">Pengajar / Narasumber</Link>
                 </div>
               </div>
             </div>
 
-            {/* Dropdown Metode Pelatihan */}
+            {/* Akademik & Layanan */}
             <div className="relative group">
-              <button className={`flex items-center gap-1 transition-colors py-2 ${isActive("/solutions") ? 'text-[#F97316] font-semibold text-sm' : 'text-sm font-medium text-slate-600 hover:text-[#F97316]'}`}>
-                Metode Pelatihan <ChevronDown className="h-4 w-4" />
+              <button className={`flex items-center gap-1 transition-colors py-2 ${isActive("/programs") || isActive("/solutions") || isActive("/curriculum") ? 'text-[#F97316] font-semibold text-sm' : 'text-sm font-medium text-slate-600 hover:text-[#F97316]'}`}>
+                Program & Akademik <ChevronDown className="h-4 w-4" />
               </button>
               <div className="absolute top-full left-0 mt-1 w-48 rounded-md bg-white shadow-lg border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <div className="py-2">
-                  <Link href="/solutions" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#F97316]">LMS</Link>
-                  <Link href="/solutions" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#F97316]">Online</Link>
-                  <Link href="/solutions" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#F97316]">Offline</Link>
-                  <Link href="/solutions" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#F97316]">Hybrid</Link>
+                  <Link href="/programs" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#F97316]">Katalog Program</Link>
+                  <Link href="/curriculum" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#F97316]">Kurikulum Pelatihan</Link>
+                  <Link href="/solutions" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#F97316]">Metode Pelatihan</Link>
                 </div>
               </div>
             </div>
 
-            <Link href="/certificate" className={navLinkClass("/certificate")}>Sertifikat</Link>
-            <Link href="/faq" className={navLinkClass("/faq")}>FAQ & Testimoni</Link>
+            {/* Informasi & Pusat Bantuan */}
+            <div className="relative group">
+              <button className={`flex items-center gap-1 transition-colors py-2 ${isActive("/certificate") || isActive("/faq") ? 'text-[#F97316] font-semibold text-sm' : 'text-sm font-medium text-slate-600 hover:text-[#F97316]'}`}>
+                Informasi <ChevronDown className="h-4 w-4" />
+              </button>
+              <div className="absolute top-full left-0 mt-1 w-48 rounded-md bg-white shadow-lg border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div className="py-2">
+                  <Link href="/faq" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#F97316]">FAQ & Testimoni</Link>
+                  <Link href="/certificate" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#F97316]">Validasi Sertifikat</Link>
+                </div>
+              </div>
+            </div>
           </nav>
 
           {/* Desktop Actions */}
@@ -127,44 +134,54 @@ export function PublicNavbar() {
         >
           <div className="px-4 pt-2 pb-6 space-y-1 overflow-y-auto max-h-[calc(100vh-80px)]">
             <Link href="/" onClick={toggleMenu} className={mobNavLinkClass("/")}>Home</Link>
-            <Link href="/about" onClick={toggleMenu} className={mobNavLinkClass("/about")}>Tentang Kami</Link>
+            {/* Profil */}
+            <div>
+              <button 
+                onClick={() => toggleDropdown('profil')}
+                className={`flex items-center justify-between w-full px-3 py-2 text-base font-medium ${isActive("/about") || isActive("/instructors") ? 'text-[#F97316]' : 'text-slate-800 hover:text-[#F97316]'}`}
+              >
+                Profil <ChevronDown className={`h-4 w-4 transition-transform ${activeDropdown === 'profil' ? 'rotate-180' : ''}`} />
+              </button>
+              {activeDropdown === 'profil' && (
+                <div className="pl-6 pb-2 space-y-1">
+                  <Link href="/about" onClick={toggleMenu} className="block px-3 py-2 text-sm text-slate-600 hover:text-[#F97316]">Tentang Kami & Visi Misi</Link>
+                  <Link href="/instructors" onClick={toggleMenu} className="block px-3 py-2 text-sm text-slate-600 hover:text-[#F97316]">Pengajar / Narasumber</Link>
+                </div>
+              )}
+            </div>
             
-            {/* Mobile Dropdown 1 */}
+            {/* Akademik */}
             <div>
               <button 
-                onClick={() => toggleDropdown('program')}
-                className={`flex items-center justify-between w-full px-3 py-2 text-base font-medium ${isActive("/programs") ? 'text-[#F97316]' : 'text-slate-800 hover:text-[#F97316]'}`}
+                onClick={() => toggleDropdown('akademik')}
+                className={`flex items-center justify-between w-full px-3 py-2 text-base font-medium ${isActive("/programs") || isActive("/solutions") || isActive("/curriculum") ? 'text-[#F97316]' : 'text-slate-800 hover:text-[#F97316]'}`}
               >
-                Program Diklat <ChevronDown className={`h-4 w-4 transition-transform ${activeDropdown === 'program' ? 'rotate-180' : ''}`} />
+                Program & Akademik <ChevronDown className={`h-4 w-4 transition-transform ${activeDropdown === 'akademik' ? 'rotate-180' : ''}`} />
               </button>
-              {activeDropdown === 'program' && (
+              {activeDropdown === 'akademik' && (
                 <div className="pl-6 pb-2 space-y-1">
-                  <Link href="/programs" onClick={toggleMenu} className="block px-3 py-2 text-sm text-slate-600 hover:text-[#F97316]">Semua Program</Link>
-                  <Link href="/programs" onClick={toggleMenu} className="block px-3 py-2 text-sm text-slate-600 hover:text-[#F97316]">Detail Program</Link>
+                  <Link href="/programs" onClick={toggleMenu} className="block px-3 py-2 text-sm text-slate-600 hover:text-[#F97316]">Katalog Program</Link>
+                  <Link href="/curriculum" onClick={toggleMenu} className="block px-3 py-2 text-sm text-slate-600 hover:text-[#F97316]">Kurikulum Pelatihan</Link>
+                  <Link href="/solutions" onClick={toggleMenu} className="block px-3 py-2 text-sm text-slate-600 hover:text-[#F97316]">Metode Pelatihan</Link>
                 </div>
               )}
             </div>
 
-            {/* Mobile Dropdown 2 */}
+            {/* Informasi */}
             <div>
               <button 
-                onClick={() => toggleDropdown('metode')}
-                className={`flex items-center justify-between w-full px-3 py-2 text-base font-medium ${isActive("/solutions") ? 'text-[#F97316]' : 'text-slate-800 hover:text-[#F97316]'}`}
+                onClick={() => toggleDropdown('info')}
+                className={`flex items-center justify-between w-full px-3 py-2 text-base font-medium ${isActive("/faq") || isActive("/certificate") ? 'text-[#F97316]' : 'text-slate-800 hover:text-[#F97316]'}`}
               >
-                Metode Pelatihan <ChevronDown className={`h-4 w-4 transition-transform ${activeDropdown === 'metode' ? 'rotate-180' : ''}`} />
+                Informasi <ChevronDown className={`h-4 w-4 transition-transform ${activeDropdown === 'info' ? 'rotate-180' : ''}`} />
               </button>
-              {activeDropdown === 'metode' && (
+              {activeDropdown === 'info' && (
                 <div className="pl-6 pb-2 space-y-1">
-                  <Link href="/solutions" onClick={toggleMenu} className="block px-3 py-2 text-sm text-slate-600 hover:text-[#F97316]">LMS</Link>
-                  <Link href="/solutions" onClick={toggleMenu} className="block px-3 py-2 text-sm text-slate-600 hover:text-[#F97316]">Online</Link>
-                  <Link href="/solutions" onClick={toggleMenu} className="block px-3 py-2 text-sm text-slate-600 hover:text-[#F97316]">Offline</Link>
-                  <Link href="/solutions" onClick={toggleMenu} className="block px-3 py-2 text-sm text-slate-600 hover:text-[#F97316]">Hybrid</Link>
+                  <Link href="/faq" onClick={toggleMenu} className="block px-3 py-2 text-sm text-slate-600 hover:text-[#F97316]">FAQ & Testimoni</Link>
+                  <Link href="/certificate" onClick={toggleMenu} className="block px-3 py-2 text-sm text-slate-600 hover:text-[#F97316]">Validasi Sertifikat</Link>
                 </div>
               )}
             </div>
-
-            <Link href="/certificate" onClick={toggleMenu} className={mobNavLinkClass("/certificate")}>Sertifikat</Link>
-            <Link href="/faq" onClick={toggleMenu} className={mobNavLinkClass("/faq")}>FAQ & Testimoni</Link>
             
             <div className="pt-6 flex flex-col gap-3 px-3">
               <Link href="/auth/login" className="w-full">
