@@ -17,8 +17,8 @@ services:
       dockerfile: Dockerfile
       args:
         # Inject NEXT_PUBLIC vars saat build time (Next.js memerlukannya)
-        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:3000}
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:3090}
         NEXT_PUBLIC_APP_TOKEN: ${NEXT_PUBLIC_APP_TOKEN:-}
     environment:
       # Untuk lokal, API bisa dijangkau via localhost atau nama container
-      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:3000}
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:3090}

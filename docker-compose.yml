@@ -10,9 +10,9 @@ services:
       - .env
     environment:
       # Atur agar frontend dapat menjangkau backend melalui internal Docker network
-      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://diklat-backend:3000}
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://diklat-backend:3090}
     ports:
-      - "3001:3001"
+      - "3002:3002"
     networks:
       - diklat-global-network
 

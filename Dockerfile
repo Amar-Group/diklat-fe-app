@@ -56,9 +56,9 @@ RUN chown -R nextjs:nodejs /app
 USER nextjs
 
 # Expose port
-EXPOSE 3001
+EXPOSE 3002
 
-ENV PORT=3001
+ENV PORT=3002
 ENV HOSTNAME="0.0.0.0"
 
 # Next.js standalone entrypoint
