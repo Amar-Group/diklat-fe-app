@@ -45,7 +45,17 @@ const linkVariants = cva(
   }
 );
 
-function Link({ href = "#", variant, size, weight, external, className, children, ...props }) {
+interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  href?: string;
+  variant?: any;
+  size?: any;
+  weight?: any;
+  external?: boolean;
+  className?: string;
+  children?: React.ReactNode;
+}
+
+function Link({ href = "#", variant, size, weight, external, className, children, ...props }: LinkProps) {
   if (external) {
     return (
       <a
