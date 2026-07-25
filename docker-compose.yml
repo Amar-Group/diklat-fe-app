@@ -9,8 +9,8 @@ services:
     env_file:
       - .env
     environment:
-      # Atur agar frontend memanggil backend via HTTPS Same-Origin /api
-      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-https://diklat-amar.id/api}
+      # Atur agar frontend memanggil backend via HTTPS Same-Origin
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-https://diklat-amar.id}
     ports:
       - "${PORT:-3002}:${PORT:-3002}"
     networks:
