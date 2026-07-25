@@ -1,0 +1,24 @@
+# ============================================================
+# docker-compose.local.yml — Override untuk Testing Lokal
+# ============================================================
+# Cara penggunaan:
+#   docker compose -f docker-compose.yml -f docker-compose.local.yml up -d --build
+#
+# File ini MENGGANTIKAN konfigurasi image GHCR dengan
+# build lokal langsung dari source code.
+# ============================================================
+
+services:
+  frontend:
+    # Override: build dari Dockerfile lokal, bukan pull dari GHCR
+    image: diklat-fe-app:local
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # Inject NEXT_PUBLIC vars saat build time (Next.js memerlukannya)
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:3090}
+        NEXT_PUBLIC_APP_TOKEN: ${NEXT_PUBLIC_APP_TOKEN:-}
+    environment:
+      # Untuk lokal, API bisa dijangkau via localhost atau nama container
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:3090}

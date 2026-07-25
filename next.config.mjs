@@ -2,7 +2,7 @@
 const nextConfig = {
   output: 'standalone',
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: process.env.NODE_ENV === "production" ? false : true,
   },
   images: {
     remotePatterns: [
