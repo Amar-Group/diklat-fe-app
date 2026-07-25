@@ -26,7 +26,7 @@ export default function AttendancesPage() {
 
   const { openCreate, deleteId, closeDelete } = useAttendanceStore();
 
-  const mappedParticipants = participants.map(p => ({ id: p.user_id, name: p.user?.name || "Peserta ID: " + p.user_id }));
+  const mappedParticipants = participants.map(p => ({ id: p.user_id, name: p.name || "Peserta ID: " + p.user_id }));
 
   const columns = useAttendanceColumns({ permissions, sessions, participants: mappedParticipants });
 

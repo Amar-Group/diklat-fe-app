@@ -90,7 +90,7 @@ export function AttendanceFormModal() {
           <label className="block text-sm font-medium text-foreground">Peserta <span className="text-red-500">*</span></label>
           <select value={formParticipantId} onChange={(e) => setFormParticipantId(e.target.value)} className={inputCls} disabled={isSaving || isLoadingParticipants}>
             <option value="" disabled>Pilih Peserta...</option>
-            {participants.map(p => <option key={p.id} value={p.user_id}>{p.user?.name || "Peserta ID: " + p.user_id}</option>)}
+            {participants.map(p => <option key={p.id} value={p.user_id}>{p.name || "Peserta ID: " + p.user_id}</option>)}
           </select>
         </div>
 
