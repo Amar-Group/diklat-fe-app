@@ -27,7 +27,18 @@ const statusSizeMap = {
   "3xl": "size-4 border-2",
 };
 
-function Avatar({ src, alt = "", initials, size = "default", rounded = "full", status, color = "bg-blue-100 text-blue-700", className }) {
+interface AvatarProps {
+  src?: string | null;
+  alt?: string;
+  initials?: string;
+  size?: keyof typeof sizeMap;
+  rounded?: "full" | "md" | "lg";
+  status?: keyof typeof statusColorMap;
+  color?: string;
+  className?: string;
+}
+
+function Avatar({ src, alt = "", initials, size = "default", rounded = "full", status, color = "bg-blue-100 text-blue-700", className }: AvatarProps) {
   const roundedClass = rounded === "full" ? "rounded-full" : rounded === "md" ? "rounded-xl" : "rounded-lg";
 
   return (
@@ -46,7 +57,14 @@ function Avatar({ src, alt = "", initials, size = "default", rounded = "full", s
   );
 }
 
-function AvatarGroup({ children, max, size = "default", className }) {
+interface AvatarGroupProps {
+  children: React.ReactNode[];
+  max?: number;
+  size?: keyof typeof sizeMap;
+  className?: string;
+}
+
+function AvatarGroup({ children, max, size = "default", className }: AvatarGroupProps) {
   const items = max ? children.slice(0, max) : children;
   const overflow = max && children.length > max ? children.length - max : 0;
 
