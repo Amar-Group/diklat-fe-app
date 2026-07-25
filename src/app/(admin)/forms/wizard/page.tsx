@@ -41,7 +41,7 @@ const inputCls = (err) =>
     err ? "border-red-400 focus:ring-red-200 bg-red-50" : "border-border focus:ring-primary/20 focus:border-primary"
   }`;
 
-function FieldErr({ e }) {
+function FieldErr({ e }: { e?: any }) {
   return e ? <p className="text-xs text-red-600 mt-1">✗ {e.message}</p> : null;
 }
 

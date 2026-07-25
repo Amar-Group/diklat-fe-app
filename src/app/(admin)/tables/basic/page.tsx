@@ -51,7 +51,7 @@ function Td({ children, className = "" }) {
   return <td className={`px-4 py-3 text-sm ${className}`}>{children}</td>;
 }
 
-function Section({ title, description, children, span2 = false }) {
+function Section({ title, description, children, className, span2 = false, ...props }: { title?: any; description?: any; children?: any; className?: string; span2?: boolean; [key: string]: any }) {
   return (
     <div className={`bg-card border border-border rounded-xl shadow-sm overflow-hidden ${span2 ? "lg:col-span-2" : ""}`}>
       <div className="px-6 py-4 border-b border-border">

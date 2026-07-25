@@ -1,6 +1,6 @@
 "use client";
 
-function Section({ title, children }) {
+function Section({ title, children }: { title?: any; children?: any }) {
   return (
     <div className="p-6 bg-card border border-border rounded-xl shadow-sm space-y-4">
       <h2 className="text-lg font-semibold">{title}</h2>
@@ -9,7 +9,7 @@ function Section({ title, children }) {
   );
 }
 
-function FormGroup({ label, htmlFor, hint, children }) {
+function FormGroup({ label, htmlFor, hint, children }: { label?: any; htmlFor?: string; hint?: any; children?: any }) {
   return (
     <div className="space-y-1.5">
       {label && <label htmlFor={htmlFor} className="block text-sm font-medium text-foreground">{label}</label>}
@@ -170,12 +170,12 @@ export default function BasicElementsPage() {
         {/* Toggle Switch */}
         <Section title="Toggle Switches">
           <div className="space-y-3">
-            {[
+            {([
               ["Notifications", true],
               ["Dark Mode", false],
               ["Auto-save", true],
               ["Two-factor auth", false],
-            ].map(([label, checked]) => (
+            ] as [string, boolean][]).map(([label, checked]) => (
               <label key={label} className="flex items-center justify-between text-sm cursor-pointer">
                 <span>{label}</span>
                 <div className="relative">

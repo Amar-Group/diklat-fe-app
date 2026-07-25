@@ -20,7 +20,7 @@ function formatSize(bytes) {
   return (bytes / 1024 ** 2).toFixed(1) + " MB";
 }
 
-function Section({ title, description, children, span2 = false }) {
+function Section({ title, description, children, className, span2 = false, ...props }: { title?: any; description?: any; children?: any; className?: string; span2?: boolean; [key: string]: any }) {
   return (
     <div className={`p-6 bg-card border border-border rounded-xl shadow-sm space-y-4 ${span2 ? "lg:col-span-2" : ""}`}>
       <div>

@@ -18,7 +18,7 @@ const colorVariants = [
   { color: "#8b5cf6", track: "#8b5cf6", label: "Purple" },
 ];
 
-function Section({ title, description, children, span2 = false }) {
+function Section({ title, description, children, className, span2 = false, ...props }: { title?: any; description?: any; children?: any; className?: string; span2?: boolean; [key: string]: any }) {
   return (
     <div className={`p-6 bg-card border border-border rounded-xl shadow-sm space-y-5 ${span2 ? "lg:col-span-2" : ""}`}>
       <div>
@@ -41,6 +41,10 @@ export default function RangeSliderPage() {
   const [vertical, setVertical]     = useState(60);
   const [vertRange, setVertRange]   = useState([20, 80]);
 
+  // Slider onChange returns number | number[]; unwrap to number for single-value sliders
+  const toNum = (v: number | number[]) => Array.isArray(v) ? v[0] : v;
+  const toArr = (v: number | number[]) => Array.isArray(v) ? v : [v];
+
   return (
     <div className="w-full space-y-6">
       <div className="flex flex-col gap-2">
@@ -56,7 +60,7 @@ export default function RangeSliderPage() {
               <span className="text-muted-foreground">Value</span>
               <span className="font-semibold text-primary">{basic}</span>
             </div>
-            <Slider value={basic} onChange={setBasic} min={0} max={100} {...sliderStyles} />
+            <Slider value={basic} onChange={(v) => setBasic(toNum(v))} min={0} max={100} {...sliderStyles} />
             <div className="flex justify-between text-xs text-muted-foreground"><span>0</span><span>100</span></div>
           </div>
         </Section>
@@ -67,7 +71,7 @@ export default function RangeSliderPage() {
               <span className="text-muted-foreground">Range</span>
               <span className="font-semibold text-primary">{range[0]} – {range[1]}</span>
             </div>
-            <Slider range value={range} onChange={setRange} min={0} max={100} {...sliderStyles} />
+            <Slider range value={range} onChange={(v) => setRange(toArr(v))} min={0} max={100} {...sliderStyles} />
             <div className="flex justify-between text-xs text-muted-foreground"><span>0</span><span>100</span></div>
           </div>
         </Section>
@@ -76,18 +80,18 @@ export default function RangeSliderPage() {
           <div className="space-y-6">
             <div className="space-y-2">
               <div className="flex justify-between text-sm"><span className="text-muted-foreground">Step 10</span><span className="font-semibold">{step10}</span></div>
-              <Slider value={step10} onChange={setStep10} min={0} max={100} step={10} {...sliderStyles} />
+              <Slider value={step10} onChange={(v) => setStep10(toNum(v))} min={0} max={100} step={10} {...sliderStyles} />
             </div>
             <div className="space-y-2">
               <div className="flex justify-between text-sm"><span className="text-muted-foreground">Step 25</span><span className="font-semibold">{Math.round(step10 / 25) * 25}</span></div>
-              <Slider value={Math.round(step10 / 25) * 25} onChange={(v) => setStep10(Math.round(v / 25) * 25)} min={0} max={100} step={25} {...sliderStyles} />
+              <Slider value={Math.round(step10 / 25) * 25} onChange={(v) => setStep10(Math.round(toNum(v) / 25) * 25)} min={0} max={100} step={25} {...sliderStyles} />
             </div>
           </div>
         </Section>
 
         <Section title="Slider with Marks" description="Visual tick marks along the track.">
           <div className="space-y-2 pt-2">
-            <Slider value={marks} onChange={setMarks} min={1} max={5} step={1}
+            <Slider value={marks} onChange={(v) => setMarks(toNum(v))} min={1} max={5} step={1}
               marks={{ 1: "1", 2: "2", 3: "3", 4: "4", 5: "5" }}
               {...sliderStyles}
               dotStyle={{ borderColor: "#e5e7eb", width: 12, height: 12, bottom: -3 }}
@@ -103,7 +107,7 @@ export default function RangeSliderPage() {
               <span className="text-4xl font-bold text-primary">{temp}°</span>
               <span className="text-lg text-muted-foreground mb-1">C</span>
             </div>
-            <Slider value={temp} onChange={setTemp} min={16} max={30} step={0.5}
+            <Slider value={temp} onChange={(v) => setTemp(toNum(v))} min={16} max={30} step={0.5}
               trackStyle={{ backgroundColor: temp > 24 ? "#ef4444" : temp > 20 ? "#f59e0b" : "#3b82f6", height: 8 }}
               railStyle={{ backgroundColor: "#e5e7eb", height: 8 }}
               handleStyle={{ ...sliderStyles.handleStyle, borderColor: temp > 24 ? "#ef4444" : temp > 20 ? "#f59e0b" : "#3b82f6" }}
@@ -118,7 +122,7 @@ export default function RangeSliderPage() {
               <span className="text-muted-foreground">Price Range</span>
               <span className="font-semibold">${price[0]} – ${price[1]}</span>
             </div>
-            <Slider range value={price} onChange={setPrice} min={0} max={2000} step={50}
+            <Slider range value={price} onChange={(v) => setPrice(toArr(v))} min={0} max={2000} step={50}
               trackStyle={{ backgroundColor: "#10b981", height: 6 }}
               railStyle={{ backgroundColor: "#e5e7eb", height: 6 }}
               handleStyle={{ ...sliderStyles.handleStyle, borderColor: "#10b981" }}
@@ -136,7 +140,7 @@ export default function RangeSliderPage() {
             <div className="flex items-center gap-4">
               <span className="text-2xl">{volume === 0 ? "🔇" : volume < 40 ? "🔉" : "🔊"}</span>
               <div className="flex-1">
-                <Slider value={volume} onChange={setVolume} min={0} max={100}
+                <Slider value={volume} onChange={(v) => setVolume(toNum(v))} min={0} max={100}
                   trackStyle={{ background: `linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%)`, height: 8 }}
                   railStyle={{ backgroundColor: "#e5e7eb", height: 8 }}
                   handleStyle={{ ...sliderStyles.handleStyle, width: 22, height: 22, marginTop: -7 }}
@@ -164,13 +168,13 @@ export default function RangeSliderPage() {
           <div className="flex items-end gap-10 h-48 px-4">
             <div className="flex flex-col items-center gap-2 h-full">
               <span className="text-xs text-muted-foreground">{vertical}%</span>
-              <Slider vertical value={vertical} onChange={setVertical} min={0} max={100}
+              <Slider vertical value={vertical} onChange={(v) => setVertical(toNum(v))} min={0} max={100}
                 {...sliderStyles} style={{ height: "100%" }} />
               <span className="text-xs text-muted-foreground">Bass</span>
             </div>
             <div className="flex flex-col items-center gap-2 h-full">
               <span className="text-xs text-muted-foreground">{vertRange[1]}%</span>
-              <Slider vertical range value={vertRange} onChange={setVertRange} min={0} max={100}
+              <Slider vertical range value={vertRange} onChange={(v) => setVertRange(toArr(v))} min={0} max={100}
                 trackStyle={{ backgroundColor: "#10b981", width: 6 }}
                 railStyle={{ backgroundColor: "#e5e7eb", width: 6 }}
                 handleStyle={[
