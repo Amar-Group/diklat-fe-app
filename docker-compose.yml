@@ -1,0 +1,28 @@
+services:
+  # ─────────────────────────────────────────────
+  # Service: Next.js Frontend Application
+  # ─────────────────────────────────────────────
+  frontend:
+    image: ghcr.io/amar-group/diklat-fe-app:latest
+    container_name: diklat-frontend
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      # Atur agar frontend dapat menjangkau backend melalui internal Docker network
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://diklat-backend:3090}
+    ports:
+      - "${PORT:-3002}:${PORT:-3002}"
+    networks:
+      - diklat-global-network
+
+# ─────────────────────────────────────────────
+# Network — JOIN network milik diklat-be-app
+# (network ini SUDAH dibuat oleh docker-compose
+#  di direktori diklat-be-app, kita cukup
+#  join dengan external: true)
+# ─────────────────────────────────────────────
+networks:
+  diklat-global-network:
+    name: diklat-global-network
+    external: true
