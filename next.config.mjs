@@ -3,6 +3,7 @@ const nextConfig = {
   output: 'standalone',
   typescript: {
     ignoreBuildErrors: true,
+    // jika di prod buat false, tapi di local true
   },
   images: {
     remotePatterns: [
