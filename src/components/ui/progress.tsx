@@ -30,6 +30,20 @@ const sizeMap = {
   xl: "h-6",
 };
 
+interface ProgressProps {
+  value?: number;
+  max?: number;
+  color?: string;
+  size?: string;
+  rounded?: boolean;
+  striped?: boolean;
+  animated?: boolean;
+  showLabel?: boolean;
+  label?: React.ReactNode;
+  className?: string;
+  barClassName?: string;
+}
+
 function Progress({
   value = 0,
   max = 100,
@@ -42,7 +56,7 @@ function Progress({
   label,
   className,
   barClassName,
-}) {
+}: ProgressProps) {
   const pct = Math.min(100, Math.max(0, (value / max) * 100));
 
   return (

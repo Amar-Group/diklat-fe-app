@@ -1,6 +1,12 @@
 import { cn } from "@/lib/utils";
 
-function ListGroup({ className, flush = false, horizontal = false, ...props }) {
+interface ListGroupProps extends React.HTMLAttributes<HTMLUListElement> {
+  className?: string;
+  flush?: boolean;
+  horizontal?: boolean;
+}
+
+function ListGroup({ className, flush = false, horizontal = false, ...props }: ListGroupProps) {
   return (
     <ul
       data-slot="list-group"
@@ -15,13 +21,20 @@ function ListGroup({ className, flush = false, horizontal = false, ...props }) {
   );
 }
 
+interface ListGroupItemProps extends React.HTMLAttributes<HTMLElement> {
+  className?: string;
+  active?: boolean;
+  disabled?: boolean;
+  as?: any;
+}
+
 function ListGroupItem({
   className,
   active = false,
   disabled = false,
   as: Tag = "li",
   ...props
-}) {
+}: ListGroupItemProps) {
   return (
     <Tag
       data-slot="list-group-item"
@@ -45,7 +58,9 @@ function ListGroupItem({
   );
 }
 
-function ListGroupItemAction({ className, ...props }) {
+interface ListGroupItemActionProps extends ListGroupItemProps {}
+
+function ListGroupItemAction({ className, ...props }: ListGroupItemActionProps) {
   return (
     <ListGroupItem
       as="a"

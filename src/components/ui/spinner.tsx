@@ -22,10 +22,16 @@ const sizeMap = {
   xl: "size-16",
 };
 
+interface SpinnerProps {
+  size?: string;
+  color?: string;
+  className?: string;
+}
+
 /**
  * Border Spinner — classic circular spinning border
  */
-function Spinner({ size = "default", color = "default", className }) {
+function Spinner({ size = "default", color = "default", className }: SpinnerProps) {
   return (
     <div
       data-slot="spinner"

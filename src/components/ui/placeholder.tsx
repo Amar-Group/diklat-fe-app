@@ -36,7 +36,15 @@ const placeholderVariants = cva(
   }
 );
 
-function Placeholder({ className, animation, color, size, style, rounded, ...props }) {
+interface PlaceholderProps extends React.HTMLAttributes<HTMLSpanElement> {
+  className?: string;
+  animation?: any;
+  color?: any;
+  size?: any;
+  rounded?: any;
+}
+
+function Placeholder({ className, animation, color, size, style, rounded, ...props }: PlaceholderProps) {
   return (
     <span
       data-slot="placeholder"
