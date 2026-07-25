@@ -5,7 +5,7 @@ import { Collapse, useCollapse } from "@/components/ui/collapse";
 import { ChevronDown, ChevronRight, Plus, Minus, Settings, Bell, User, HelpCircle, Info, AlertTriangle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-function DemoCard({ title, description, children }) {
+function DemoCard({ title, description, children, className, span2 = false, ...props }: { title?: any; description?: any; children?: any; className?: string; span2?: boolean; [key: string]: any }) {
   return (
     <div className="p-6 bg-card border border-border rounded-xl shadow-sm">
       <h2 className="text-lg font-semibold mb-1">{title}</h2>

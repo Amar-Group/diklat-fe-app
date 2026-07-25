@@ -11,7 +11,7 @@ import {
   Bell, User, Package, Zap, ChevronDown,
 } from "lucide-react";
 
-function DemoCard({ title, description, children, span2 = false }) {
+function DemoCard({ title, description, children, className, span2 = false, ...props }: { title?: any; description?: any; children?: any; className?: string; span2?: boolean; [key: string]: any }) {
   return (
     <div className={`p-6 bg-card border border-border rounded-xl shadow-sm ${span2 ? "lg:col-span-2" : ""}`}>
       <h2 className="text-lg font-semibold mb-1">{title}</h2>
