@@ -3,7 +3,7 @@ services:
   # Service: Next.js Frontend Application
   # ─────────────────────────────────────────────
   frontend:
-    image: ghcr.io/${GITHUB_REPOSITORY}/diklat-fe-app:latest
+    image: ghcr.io/amar-group/diklat-fe-app:latest
     container_name: diklat-frontend
     restart: unless-stopped
     env_file:
