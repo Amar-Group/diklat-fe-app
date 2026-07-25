@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import * as LucideIcons from "lucide-react";
 import { Search, Copy, Check } from "lucide-react";
 
-/* ─── Icon categories ─────────────────────────────── */
+/* --- Icon categories ------------------------------- */
 const categories = {
   "Arrows & Navigation": ["ArrowLeft","ArrowRight","ArrowUp","ArrowDown","ArrowUpRight","ArrowDownLeft","ChevronLeft","ChevronRight","ChevronUp","ChevronDown","ChevronsLeft","ChevronsRight","ChevronsUp","ChevronsDown","MoveLeft","MoveRight","MoveUp","MoveDown","Navigation","Navigation2","Compass","CornerDownLeft","CornerDownRight","CornerUpLeft","CornerUpRight","RotateCcw","RotateCw","RefreshCw","RefreshCcw","Repeat","Repeat1","Repeat2","Shuffle","Undo","Undo2","Redo","Redo2"],
   "Interface": ["Menu","X","Plus","Minus","Check","CheckCircle","CheckCircle2","Circle","Square","Triangle","Hexagon","Octagon","Star","Heart","Bookmark","Flag","Tag","Hash","AtSign","Slash","Dot","Grip","GripHorizontal","GripVertical","MoreHorizontal","MoreVertical","AlignLeft","AlignCenter","AlignRight","AlignJustify","List","ListOrdered","ListChecks","LayoutDashboard","Layout","LayoutGrid","LayoutList","Sidebar","SidebarOpen","SidebarClose","Columns","Rows","Table","TableProperties","Grid","Grid2X2","Grid3X3"],

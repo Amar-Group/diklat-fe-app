@@ -17,7 +17,7 @@ interface RatingProps {
   className?: string;
 }
 
-/* ─── Core Rating Component ──────────────────────── */
+/* --- Core Rating Component ------------------------ */
 function Rating({
   value = 0,
   max = 5,
@@ -79,7 +79,7 @@ function Rating({
   );
 }
 
-/* ─── Rating with Label ───────────────────────────── */
+/* --- Rating with Label ----------------------------- */
 function RatingWithLabel({ value, max = 5, label, count, ...props }: { value: number; max?: number; label?: string; count?: string | number; [key: string]: any }) {
   return (
     <div className="flex items-center gap-2">

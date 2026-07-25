@@ -33,7 +33,7 @@ import {
 } from "@/features/rbac/role-permission/hooks/use-role-permission";
 import { useRolePermissionStore } from "@/features/rbac/role-permission/store";
 
-/* ── Constants ── */
+/* -- Constants -- */
 const PERM_KEYS = [
   "can_read",
   "can_create",
@@ -57,7 +57,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
   Settings,
 };
 
-/* ── Permission Checkbox ── */
+/* -- Permission Checkbox -- */
 function PermCheck({
   checked,
   onChange,
@@ -86,7 +86,7 @@ function PermCheck({
   );
 }
 
-/* ── Types ── */
+/* -- Types -- */
 type MenuPermState = Record<
   number,
   {
@@ -104,7 +104,7 @@ type MenuGroup = {
   children: Menu[];
 };
 
-/* ── Helpers ── */
+/* -- Helpers -- */
 function buildPermState(
   roleId: number,
   perms: RolePermission[],
@@ -154,7 +154,7 @@ function groupMenus(menus: Menu[]): MenuGroup[] {
   return groups;
 }
 
-/* ── Component ── */
+/* -- Component -- */
 type PermissionMatrixModalProps = {
   menus: Menu[];
   perms: RolePermission[];

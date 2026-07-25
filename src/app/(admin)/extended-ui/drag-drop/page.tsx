@@ -8,14 +8,14 @@ import {
   CheckCircle2, Clock, AlertCircle, User,
 } from "lucide-react";
 
-/* ─── helpers ─────────────────────────────────────── */
+/* --- helpers --------------------------------------- */
 function uid() {
   return Math.random().toString(36).slice(2);
 }
 
-/* ═══════════════════════════════════════════════════
+/* ===================================================
    1. Sortable List (vertical)
-═══════════════════════════════════════════════════ */
+=================================================== */
 const INITIAL_LIST = [
   { id: uid(), label: "Design system overhaul", priority: "high" },
   { id: uid(), label: "Implement dark mode", priority: "medium" },
@@ -63,9 +63,9 @@ function SortableList() {
   );
 }
 
-/* ═══════════════════════════════════════════════════
+/* ===================================================
    2. Kanban Board
-═══════════════════════════════════════════════════ */
+=================================================== */
 const KANBAN_INIT = {
   todo: [
     { id: uid(), title: "Research competitors", tag: "Research", color: "bg-purple-100 text-purple-700" },
@@ -144,9 +144,9 @@ function KanbanBoard() {
   );
 }
 
-/* ═══════════════════════════════════════════════════
+/* ===================================================
    3. File Drop Zone
-═══════════════════════════════════════════════════ */
+=================================================== */
 const fileIcons = { image: Image, audio: Music, video: Video, application: Archive, text: FileText };
 
 function FileDropZone() {
@@ -204,9 +204,9 @@ function FileDropZone() {
   );
 }
 
-/* ═══════════════════════════════════════════════════
+/* ===================================================
    4. Sortable columns (horizontal)
-═══════════════════════════════════════════════════ */
+=================================================== */
 const COLS_INIT = [
   { id: uid(), label: "Name",   key: "name" },
   { id: uid(), label: "Email",  key: "email" },
@@ -280,9 +280,9 @@ function SortableColumns() {
   );
 }
 
-/* ═══════════════════════════════════════════════════
+/* ===================================================
    Page
-═══════════════════════════════════════════════════ */
+=================================================== */
 function DemoCard({ title, description, children, className, span2 = false, ...props }: { title?: any; description?: any; children?: any; className?: string; span2?: boolean; [key: string]: any }) {
   return (
     <div className={`p-6 bg-card border border-border rounded-xl shadow-sm ${span2 ? "lg:col-span-2" : ""}`}>

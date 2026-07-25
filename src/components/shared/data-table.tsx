@@ -23,7 +23,7 @@ import {
   Download,
 } from "lucide-react";
 
-/* ── Checkbox ── */
+/* -- Checkbox -- */
 function Checkbox({ checked, onChange }: { checked: boolean; onChange: () => void }) {
   return (
     <div
@@ -43,7 +43,7 @@ function Checkbox({ checked, onChange }: { checked: boolean; onChange: () => voi
   );
 }
 
-/* ── Sort Icon ── */
+/* -- Sort Icon -- */
 function SortIcon({ column }: { column: any }) {
   if (!column.getCanSort()) return null;
   const sorted = column.getIsSorted();
@@ -56,7 +56,7 @@ function SortIcon({ column }: { column: any }) {
   );
 }
 
-/* ── Props ── */
+/* -- Props -- */
 interface DataTableProps<TData> {
   data: TData[];
   columns: ColumnDef<TData, any>[];
@@ -112,7 +112,7 @@ export function DataTable<TData>({
     initialState: { pagination: { pageSize: 10 } },
   });
 
-  /* ── Export to CSV ── */
+  /* -- Export to CSV -- */
   const handleExport = () => {
     const visibleColumns = table.getVisibleLeafColumns().filter((c) => c.id !== "actions" && c.id !== "select");
     const headerRow = visibleColumns.map((c) => {
@@ -145,7 +145,7 @@ export function DataTable<TData>({
 
   return (
     <div className="overflow-hidden">
-      {/* ── Toolbar ── */}
+      {/* -- Toolbar -- */}
       <div className="flex flex-wrap items-center justify-between gap-3 px-5 py-4 border-b border-border">
         {/* Search */}
         <div className="relative w-64">
@@ -196,7 +196,7 @@ export function DataTable<TData>({
         </div>
       </div>
 
-      {/* ── Table ── */}
+      {/* -- Table -- */}
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead className="bg-muted/80 border-b border-border">
@@ -262,7 +262,7 @@ export function DataTable<TData>({
         </table>
       </div>
 
-      {/* ── Pagination Footer ── */}
+      {/* -- Pagination Footer -- */}
       <div className="flex flex-wrap items-center justify-between gap-3 px-5 py-4 border-t border-border bg-muted/50">
         <div className="flex items-center gap-3">
           <span className="text-xs text-muted-foreground">

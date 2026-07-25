@@ -12,7 +12,7 @@ import {
   AlertDismiss,
 } from "@/components/ui/alert";
 
-/* ─── Context ─────────────────────────────────────────── */
+/* --- Context ------------------------------------------- */
 const NotificationContext = createContext<any>(null);
 
 function NotificationProvider({ children }: { children: React.ReactNode }) {
@@ -43,7 +43,7 @@ function useNotification() {
   return useContext(NotificationContext);
 }
 
-/* ─── Container ───────────────────────────────────────── */
+/* --- Container ----------------------------------------- */
 function NotificationContainer({ notifications, onRemove, position = "top-right" }: any) {
   const positionClass: Record<string, string> = {
     "top-right": "top-4 right-4 items-end",
@@ -63,7 +63,7 @@ function NotificationContainer({ notifications, onRemove, position = "top-right"
   );
 }
 
-/* ─── Toast ───────────────────────────────────────────── */
+/* --- Toast --------------------------------------------- */
 const iconMap: Record<string, any> = {
   default: Info,
   success: CheckCircle2,
@@ -108,7 +108,7 @@ function NotificationToast({ title, message, variant = "default", onClose, showI
   );
 }
 
-/* ─── Static inline notification (no portal) ─────────── */
+/* --- Static inline notification (no portal) ----------- */
 function Notification({ title, message, variant = "default", onClose, showIcon = true, action, className }: any) {
   const Icon = iconMap[variant] || Info;
 
