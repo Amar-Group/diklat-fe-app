@@ -65,6 +65,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-and-push
     environment: production
+    permissions:
+      contents: read
+      packages: read
 
     steps:
       - name: 📥 Checkout repository
@@ -82,18 +85,25 @@ jobs:
 
       - name: 🔌 SSH into VPS and deploy
         uses: appleboy/ssh-action@v1.0.3
+        env:
+          GHCR_PAT: ${{ secrets.GHCR_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_PRIVATE_KEY }}
           port: ${{ secrets.VPS_PORT || '22' }}
+          envs: GHCR_PAT,GITHUB_TOKEN
           script: |
             set -e
             # ── Navigasi ke direktori frontend di VPS ──
             cd /var/www/diklat-fe
 
-            # ── Autentikasi ke GHCR menggunakan PAT ──
-            echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+            # ── Autentikasi ke GHCR (Gunakan GHCR_PAT jika ada, atau fallback ke GITHUB_TOKEN) ──
+            TOKEN="${GHCR_PAT:-$GITHUB_TOKEN}"
+            if [ -n "$TOKEN" ]; then
+              echo "$TOKEN" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+            fi
 
             # ── Pull image terbaru dari GHCR ──
             docker compose pull frontend
