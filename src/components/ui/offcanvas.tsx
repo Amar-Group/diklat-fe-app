@@ -70,7 +70,7 @@ function Offcanvas({
       <div
         role="dialog"
         aria-modal="true"
-        aria-label={title}
+        aria-label={typeof title === "string" ? title : undefined}
         className={cn(
           "fixed z-50 bg-card shadow-2xl flex flex-col",
           "transition-transform duration-300 ease-in-out",
