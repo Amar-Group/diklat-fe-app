@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-function Card({ className = undefined, ...props }) {
+function Card({ className = undefined, ...props }: React.HTMLAttributes<HTMLDivElement> & { className?: string }) {
   return (
     <div
       data-slot="card"
@@ -13,7 +13,7 @@ function Card({ className = undefined, ...props }) {
   );
 }
 
-function CardHeader({ className = undefined, ...props }) {
+function CardHeader({ className = undefined, ...props }: React.HTMLAttributes<HTMLDivElement> & { className?: string }) {
   return (
     <div
       data-slot="card-header"
@@ -23,7 +23,7 @@ function CardHeader({ className = undefined, ...props }) {
   );
 }
 
-function CardTitle({ className = undefined, ...props }) {
+function CardTitle({ className = undefined, ...props }: React.HTMLAttributes<HTMLHeadingElement> & { className?: string }) {
   return (
     <h3
       data-slot="card-title"
@@ -33,7 +33,7 @@ function CardTitle({ className = undefined, ...props }) {
   );
 }
 
-function CardDescription({ className = undefined, ...props }) {
+function CardDescription({ className = undefined, ...props }: React.HTMLAttributes<HTMLParagraphElement> & { className?: string }) {
   return (
     <p
       data-slot="card-description"
@@ -43,7 +43,7 @@ function CardDescription({ className = undefined, ...props }) {
   );
 }
 
-function CardContent({ className = undefined, ...props }) {
+function CardContent({ className = undefined, ...props }: React.HTMLAttributes<HTMLDivElement> & { className?: string }) {
   return (
     <div
       data-slot="card-content"
@@ -53,7 +53,7 @@ function CardContent({ className = undefined, ...props }) {
   );
 }
 
-function CardFooter({ className = undefined, ...props }) {
+function CardFooter({ className = undefined, ...props }: React.HTMLAttributes<HTMLDivElement> & { className?: string }) {
   return (
     <div
       data-slot="card-footer"
@@ -66,7 +66,7 @@ function CardFooter({ className = undefined, ...props }) {
   );
 }
 
-function CardImage({ src, alt = "", className = undefined, ...props }) {
+function CardImage({ src, alt = "", className = undefined, ...props }: React.ImgHTMLAttributes<HTMLImageElement> & { className?: string }) {
   return (
     <img
       data-slot="card-image"

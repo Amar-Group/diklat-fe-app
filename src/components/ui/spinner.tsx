@@ -50,7 +50,7 @@ function Spinner({ size = "default", color = "default", className }: SpinnerProp
 /**
  * Grow Spinner — pulsing/scaling circle
  */
-function SpinnerGrow({ size = "default", color = "default", className }) {
+function SpinnerGrow({ size = "default", color = "default", className }: SpinnerProps) {
   return (
     <div
       data-slot="spinner-grow"
@@ -70,7 +70,7 @@ function SpinnerGrow({ size = "default", color = "default", className }) {
 /**
  * Dots Spinner — three bouncing dots
  */
-function SpinnerDots({ size = "default", color = "default", className }) {
+function SpinnerDots({ size = "default", color = "default", className }: SpinnerProps) {
   const dotSize = {
     xs: "size-1",
     sm: "size-1.5",
@@ -103,7 +103,7 @@ function SpinnerDots({ size = "default", color = "default", className }) {
 /**
  * Bars Spinner — vertical bars with wave animation
  */
-function SpinnerBars({ size = "default", color = "default", className }) {
+function SpinnerBars({ size = "default", color = "default", className }: SpinnerProps) {
   const barHeight = {
     xs: "h-3 w-0.5",
     sm: "h-4 w-0.5",

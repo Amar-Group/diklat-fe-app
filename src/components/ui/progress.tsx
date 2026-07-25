@@ -98,7 +98,7 @@ function Progress({
   );
 }
 
-function ProgressMulti({ segments = [], size = "default", rounded = false, className }) {
+function ProgressMulti({ segments = [], size = "default", rounded = false, className }: { segments?: any[]; size?: string; rounded?: boolean; className?: string }) {
   const total = segments.reduce((sum, s) => sum + (s.value || 0), 0);
 
   return (

@@ -61,7 +61,7 @@ function Placeholder({ className, animation, color, size, style, rounded, ...pro
 }
 
 /* Shimmer effect variant using gradient */
-function PlaceholderShimmer({ className, height = "h-4", width = "w-full", rounded = "rounded" }) {
+function PlaceholderShimmer({ className, height = "h-4", width = "w-full", rounded = "rounded" }: { className?: string; height?: string; width?: string; rounded?: string }) {
   return (
     <span
       data-slot="placeholder-shimmer"
