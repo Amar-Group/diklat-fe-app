@@ -1,10 +1,6 @@
 import type { Participant } from "../types";
 
 export const DUMMY_COMPANYS: Participant[] = [
-  { id: 1, code: "ADMIN", name: "Administrator", created_at: "2025-01-15T08:00:00Z", updated_at: "2025-01-15T08:00:00Z" },
-  { id: 2, code: "USER", name: "User", created_at: "2025-01-15T08:00:00Z", updated_at: "2025-01-15T08:00:00Z" },
-  { id: 3, code: "CASHIER", name: "Kasir", created_at: "2025-02-10T10:30:00Z", updated_at: "2025-02-10T10:30:00Z" },
-  { id: 4, code: "MANAGER", name: "Manajer", created_at: "2025-03-05T14:00:00Z", updated_at: "2025-03-05T14:00:00Z" },
-  { id: 5, code: "WAITER", name: "Pelayan", created_at: "2025-03-20T09:15:00Z", updated_at: "2025-03-20T09:15:00Z" },
-  { id: 6, code: "CHEF", name: "Koki", created_at: "2025-04-01T11:00:00Z", updated_at: "2025-04-01T11:00:00Z" },
+  { id: 1, user_id: 4, company_id: 1, name: "Budi Santoso", email: "budi@diklat.com", nik: "3171000000000001", birth_place: "Jakarta", birth_date: "1990-05-15", job_title: "Staff", department: "Operations", phone_number: "081234567890", is_active: true, created_at: "2025-01-15T08:00:00Z", updated_at: "2025-01-15T08:00:00Z" },
+  { id: 2, user_id: 5, company_id: 1, name: "Dewi Lestari", email: "dewi@diklat.com", nik: "3171000000000002", birth_place: "Bandung", birth_date: "1992-08-20", job_title: "Supervisor", department: "HR", phone_number: "081234567891", is_active: true, created_at: "2025-01-15T08:00:00Z", updated_at: "2025-01-15T08:00:00Z" },
 ];

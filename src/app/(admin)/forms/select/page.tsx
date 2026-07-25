@@ -15,7 +15,7 @@ const getSelectStyles = (isDark) => ({
     minHeight: "38px",
     "&:hover": { borderColor: "#3b82f6" },
   }),
-  singleValue: (base) => ({
+  singleValue: (base: any, state?: any) => ({
     ...base,
     color: isDark ? "oklch(0.985 0 0)" : "#111827",
   }),
@@ -92,13 +92,13 @@ const grouped = [
   { label: "Database", options: [{ value: "pg", label: "PostgreSQL" }, { value: "mysql", label: "MySQL" }, { value: "mongo", label: "MongoDB" }] },
 ];
 
-const colorDot = ({ data }, styles) => ({
+const colorDot = ({ data }: any, styles?: any) => ({
   alignItems: "center",
   display: "flex",
   "::before": { backgroundColor: data.color, borderRadius: "50%", content: '" "', display: "block", marginRight: 8, height: 10, width: 10 },
 });
 
-function Section({ title, description, children, span2 = false }) {
+function Section({ title, description, children, className, span2 = false, ...props }: { title?: any; description?: any; children?: any; className?: string; span2?: boolean; [key: string]: any }) {
   return (
     <div className={`p-6 bg-card border border-border rounded-xl shadow-sm space-y-4 ${span2 ? "lg:col-span-2" : ""}`}>
       <div>
@@ -110,7 +110,7 @@ function Section({ title, description, children, span2 = false }) {
   );
 }
 
-function Field({ label, hint, children }) {
+function Field({ label, hint, children, className, ...props }: { label?: any; hint?: any; children?: any; className?: string; [key: string]: any }) {
   return (
     <div className="space-y-1.5">
       {label && <label className="block text-sm font-medium text-foreground">{label}</label>}

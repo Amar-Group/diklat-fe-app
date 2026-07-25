@@ -3,8 +3,14 @@
 import { useState, useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
-function Collapse({ open = false, children, className }) {
-  const ref = useRef(null);
+interface CollapseProps {
+  open?: boolean;
+  children?: React.ReactNode;
+  className?: string;
+}
+
+function Collapse({ open = false, children, className }: CollapseProps) {
+  const ref = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(open ? "auto" : "0px");
   const [isVisible, setIsVisible] = useState(open);
 

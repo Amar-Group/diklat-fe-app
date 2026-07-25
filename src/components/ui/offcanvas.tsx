@@ -14,6 +14,18 @@ const placements = {
 const defaultWidth  = { left: "w-80", right: "w-80", top: "w-full", bottom: "w-full" };
 const defaultHeight = { top: "max-h-[60vh]", bottom: "max-h-[60vh]", left: "", right: "" };
 
+interface OffcanvasProps {
+  open?: boolean;
+  onClose?: () => void;
+  placement?: "left" | "right" | "top" | "bottom" | any;
+  title?: React.ReactNode | false;
+  children?: React.ReactNode;
+  footer?: React.ReactNode;
+  className?: string;
+  size?: string;
+  showBackdrop?: boolean;
+}
+
 function Offcanvas({
   open = false,
   onClose,
@@ -24,7 +36,7 @@ function Offcanvas({
   className,
   size,
   showBackdrop = true,
-}) {
+}: OffcanvasProps) {
   const cfg = placements[placement] || placements.right;
   const backdropRef = useRef(null);
 
@@ -58,7 +70,7 @@ function Offcanvas({
       <div
         role="dialog"
         aria-modal="true"
-        aria-label={title}
+        aria-label={typeof title === "string" ? title : undefined}
         className={cn(
           "fixed z-50 bg-card shadow-2xl flex flex-col",
           "transition-transform duration-300 ease-in-out",

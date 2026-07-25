@@ -6,7 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const inputCls = "w-full border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary bg-card";
 
-function Section({ title, description, children, span2 = false }) {
+function Section({ title, description, children, className, span2 = false, ...props }: { title?: any; description?: any; children?: any; className?: string; span2?: boolean; [key: string]: any }) {
   return (
     <div className={`p-6 bg-card border border-border rounded-xl shadow-sm space-y-4 ${span2 ? "lg:col-span-2" : ""}`}>
       <div>
@@ -18,7 +18,7 @@ function Section({ title, description, children, span2 = false }) {
   );
 }
 
-function Field({ label, hint, children }) {
+function Field({ label, hint, children, className, ...props }: { label?: any; hint?: any; children?: any; className?: string; [key: string]: any }) {
   return (
     <div className="space-y-1.5">
       {label && <label className="block text-sm font-medium text-foreground">{label}</label>}

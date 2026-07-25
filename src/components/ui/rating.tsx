@@ -4,7 +4,20 @@ import { useState, useCallback } from "react";
 import { cn } from "@/lib/utils";
 import { Star, Heart, Zap, ThumbsUp } from "lucide-react";
 
-/* ─── Core Rating Component ──────────────────────── */
+interface RatingProps {
+  value?: number;
+  max?: number;
+  onChange?: (val: number) => void;
+  readOnly?: boolean;
+  size?: string;
+  icon?: any;
+  activeClass?: string;
+  inactiveClass?: string;
+  hoverClass?: string;
+  className?: string;
+}
+
+/* --- Core Rating Component ------------------------ */
 function Rating({
   value = 0,
   max = 5,
@@ -16,7 +29,7 @@ function Rating({
   inactiveClass = "text-gray-200 fill-gray-200",
   hoverClass,
   className,
-}) {
+}: RatingProps) {
   const [hovered, setHovered] = useState(0);
 
   const sizeMap = { xs: "size-3.5", sm: "size-4", default: "size-6", lg: "size-8", xl: "size-10" };
@@ -66,8 +79,8 @@ function Rating({
   );
 }
 
-/* ─── Rating with Label ───────────────────────────── */
-function RatingWithLabel({ value, max = 5, label, count, ...props }) {
+/* --- Rating with Label ----------------------------- */
+function RatingWithLabel({ value, max = 5, label, count, ...props }: { value: number; max?: number; label?: string; count?: string | number; [key: string]: any }) {
   return (
     <div className="flex items-center gap-2">
       <Rating value={value} max={max} readOnly {...props} />

@@ -3,9 +3,16 @@
 import { useState, createContext, useContext } from "react";
 import { cn } from "@/lib/utils";
 
-const TabsContext = createContext(null);
+const TabsContext = createContext<any>(null);
 
-function Tabs({ defaultValue, children, className, onChange }) {
+interface TabsProps {
+  defaultValue?: string;
+  children?: React.ReactNode;
+  className?: string;
+  onChange?: (val: string) => void;
+}
+
+function Tabs({ defaultValue, children, className, onChange }: TabsProps) {
   const [active, setActive] = useState(defaultValue);
 
   const handleChange = (val) => {
@@ -22,8 +29,14 @@ function Tabs({ defaultValue, children, className, onChange }) {
   );
 }
 
-function TabList({ children, className, variant = "line" }) {
-  const variantClasses = {
+interface TabListProps {
+  children?: any;
+  className?: string;
+  variant?: any;
+}
+
+function TabList({ children, className, variant = "line" }: TabListProps) {
+  const variantClasses: Record<string, string> = {
     line: "border-b border-border gap-0",
     pill: "gap-1 p-1 bg-muted rounded-xl w-fit",
     boxed: "border border-border rounded-t-xl overflow-hidden gap-0 divide-x divide-border",
@@ -39,7 +52,7 @@ function TabList({ children, className, variant = "line" }) {
       data-variant={variant}
     >
       {Array.isArray(children)
-        ? children.map((child) =>
+        ? children.map((child: any) =>
             child
               ? { ...child, props: { ...child.props, _variant: variant } }
               : child
@@ -49,7 +62,16 @@ function TabList({ children, className, variant = "line" }) {
   );
 }
 
-function Tab({ value, children, icon: Icon, disabled = false, _variant = "line", className }) {
+interface TabProps {
+  value?: string;
+  children?: React.ReactNode;
+  icon?: any;
+  disabled?: boolean;
+  _variant?: any;
+  className?: string;
+}
+
+function Tab({ value, children, icon: Icon, disabled = false, _variant = "line", className }: TabProps) {
   const { active, setActive } = useContext(TabsContext);
   const isActive = active === value;
 
@@ -107,7 +129,13 @@ function Tab({ value, children, icon: Icon, disabled = false, _variant = "line",
   );
 }
 
-function TabPanel({ value, children, className }) {
+interface TabPanelProps {
+  value?: string;
+  children?: React.ReactNode;
+  className?: string;
+}
+
+function TabPanel({ value, children, className }: TabPanelProps) {
   const { active } = useContext(TabsContext);
   if (active !== value) return null;
 

@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, createContext, useContext } from "react";
 import { cn } from "@/lib/utils";
 import { ChevronDown, Plus, Minus } from "lucide-react";
 
-/* ─── Context ─────────────────────────────────────── */
+/* --- Context --------------------------------------- */
 const AccordionContext = createContext<any>(null);
 
 interface AccordionProps {
@@ -16,7 +16,7 @@ interface AccordionProps {
   iconType?: "chevron" | "plus";
 }
 
-/* ─── Root ────────────────────────────────────────── */
+/* --- Root ------------------------------------------ */
 function Accordion({
   children,
   type = "single",      // "single" | "multiple"
@@ -65,7 +65,7 @@ interface AccordionItemProps {
   className?: string;
 }
 
-/* ─── Item ────────────────────────────────────────── */
+/* --- Item ------------------------------------------ */
 function AccordionItem({ value, children, className }: AccordionItemProps) {
   return (
     <div data-slot="accordion-item" data-value={value} className={cn("", className)}>
@@ -81,7 +81,7 @@ interface AccordionTriggerProps {
   icon?: any;
 }
 
-/* ─── Trigger ─────────────────────────────────────── */
+/* --- Trigger --------------------------------------- */
 function AccordionTrigger({ value, children, className, icon: CustomIcon }: AccordionTriggerProps) {
   const { openItems, toggle, iconType } = useContext(AccordionContext);
   const isOpen = openItems ? openItems.has(value) : false;
@@ -118,7 +118,7 @@ interface AccordionContentProps {
   className?: string;
 }
 
-/* ─── Content (animated) ──────────────────────────── */
+/* --- Content (animated) ---------------------------- */
 function AccordionContent({ value, children, className }: AccordionContentProps) {
   const { openItems } = useContext(AccordionContext);
   const isOpen = openItems ? openItems.has(value) : false;

@@ -43,7 +43,12 @@ const iconColorMap = {
   "accent-danger": "text-red-500",
 };
 
-function Alert({ className, variant = "default", children, ...props }) {
+interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
+  variant?: keyof typeof iconColorMap;
+  children?: React.ReactNode;
+}
+
+function Alert({ className, variant = "default", children, ...props }: AlertProps) {
   return (
     <div
       data-slot="alert"
@@ -56,7 +61,13 @@ function Alert({ className, variant = "default", children, ...props }) {
   );
 }
 
-function AlertIcon({ variant = "default", icon: Icon, className }) {
+interface AlertIconProps {
+  variant?: keyof typeof iconColorMap;
+  icon: React.ComponentType<any>;
+  className?: string;
+}
+
+function AlertIcon({ variant = "default", icon: Icon, className }: AlertIconProps) {
   return (
     <Icon
       data-slot="alert-icon"
@@ -65,7 +76,12 @@ function AlertIcon({ variant = "default", icon: Icon, className }) {
   );
 }
 
-function AlertContent({ children, className }) {
+interface AlertContentProps {
+  children?: React.ReactNode;
+  className?: string;
+}
+
+function AlertContent({ children, className }: AlertContentProps) {
   return (
     <div data-slot="alert-content" className={cn("flex-1", className)}>
       {children}
@@ -73,7 +89,12 @@ function AlertContent({ children, className }) {
   );
 }
 
-function AlertTitle({ children, className }) {
+interface AlertTitleProps {
+  children?: React.ReactNode;
+  className?: string;
+}
+
+function AlertTitle({ children, className }: AlertTitleProps) {
   return (
     <p data-slot="alert-title" className={cn("font-semibold mb-0.5", className)}>
       {children}
@@ -81,7 +102,12 @@ function AlertTitle({ children, className }) {
   );
 }
 
-function AlertDescription({ children, className }) {
+interface AlertDescriptionProps {
+  children?: React.ReactNode;
+  className?: string;
+}
+
+function AlertDescription({ children, className }: AlertDescriptionProps) {
   return (
     <p data-slot="alert-description" className={cn("text-sm opacity-80", className)}>
       {children}
@@ -89,7 +115,12 @@ function AlertDescription({ children, className }) {
   );
 }
 
-function AlertDismiss({ onClick, className }) {
+interface AlertDismissProps {
+  onClick?: () => void;
+  className?: string;
+}
+
+function AlertDismiss({ onClick, className }: AlertDismissProps) {
   return (
     <button
       data-slot="alert-dismiss"

@@ -113,7 +113,7 @@ export default function ModalsPage() {
               ["Info", "info", Info, "text-blue-600", "bg-blue-100"],
               ["Success", "success", CheckCircle2, "text-green-600", "bg-green-100"],
               ["Warning", "warning", AlertTriangle, "text-yellow-600", "bg-yellow-100"],
-            ].map(([label, key, Icon, iconColor, iconBg]) => (
+            ].map(([label, key, Icon, iconColor, iconBg]: any) => (
               <div key={key}>
                 <DemoButton
                   label={label}

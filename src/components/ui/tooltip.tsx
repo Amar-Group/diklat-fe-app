@@ -20,6 +20,16 @@ const colorMap = {
   purple:  { bg: "bg-purple-600 text-white",         arrow: "border-t-purple-600 border-b-purple-600 border-l-purple-600 border-r-purple-600" },
 };
 
+interface TooltipProps {
+  children?: React.ReactNode;
+  content?: React.ReactNode;
+  placement?: string;
+  color?: string;
+  delay?: number;
+  disabled?: boolean;
+  className?: string;
+}
+
 function Tooltip({
   children,
   content,
@@ -28,7 +38,7 @@ function Tooltip({
   delay = 100,
   disabled = false,
   className,
-}) {
+}: TooltipProps) {
   const [visible, setVisible] = useState(false);
   const timerRef = useRef(null);
   const cfg = placementStyles[placement] || placementStyles.top;

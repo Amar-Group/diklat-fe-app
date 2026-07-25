@@ -86,7 +86,7 @@ export default function ConfirmMailPage() {
             <div className="flex gap-2 justify-center" onPaste={handlePaste}>
               {code.map((digit, i) => (
                 <input
-                  key={i} ref={el => inputs.current[i] = el}
+                  key={i} ref={el => { inputs.current[i] = el; }}
                   type="text" inputMode="numeric" maxLength={1}
                   value={digit}
                   onChange={e => handleKey(i, e)}
