@@ -4,6 +4,16 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+interface CarouselProps {
+  children?: React.ReactNode;
+  autoPlay?: boolean;
+  interval?: number;
+  showArrows?: boolean;
+  showDots?: boolean;
+  loop?: boolean;
+  className?: string;
+}
+
 function Carousel({
   children,
   autoPlay = false,
@@ -12,13 +22,13 @@ function Carousel({
   showDots = true,
   loop = true,
   className,
-}) {
+}: CarouselProps) {
   const slides = Array.isArray(children) ? children : [children];
   const [current, setCurrent] = useState(0);
-  const timerRef = useRef(null);
+  const timerRef = useRef<any>(null);
 
   const goTo = useCallback(
-    (index) => {
+    (index: number) => {
       if (loop) {
         setCurrent((index + slides.length) % slides.length);
       } else {
@@ -93,7 +103,12 @@ function Carousel({
   );
 }
 
-function CarouselSlide({ children, className }) {
+interface CarouselSlideProps {
+  children?: React.ReactNode;
+  className?: string;
+}
+
+function CarouselSlide({ children, className }: CarouselSlideProps) {
   return (
     <div data-slot="carousel-slide" className={cn("w-full", className)}>
       {children}

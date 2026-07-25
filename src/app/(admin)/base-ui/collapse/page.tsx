@@ -15,8 +15,15 @@ function DemoCard({ title, description, children }) {
   );
 }
 
+interface CollapseToggleProps {
+  open: boolean;
+  onToggle: () => void;
+  children: React.ReactNode;
+  className?: string;
+}
+
 /* Reusable demo trigger button */
-function CollapseToggle({ open, onToggle, children, className }) {
+function CollapseToggle({ open, onToggle, children, className }: CollapseToggleProps) {
   return (
     <button
       onClick={onToggle}

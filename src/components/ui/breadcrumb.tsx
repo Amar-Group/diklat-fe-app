@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { ChevronRight, Slash, ChevronLast, ArrowRight } from "lucide-react";
 
 interface BreadcrumbProps extends React.HTMLAttributes<HTMLElement> {
-  separator?: "chevron" | "slash" | "arrow" | "dot" | "dash" | "text";
+  separator?: string;
   children?: React.ReactNode;
 }
 
