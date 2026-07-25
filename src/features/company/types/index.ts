@@ -23,4 +23,4 @@ export type UpdateCompanyRequest = {
   phone?: string | null;
   email?: string | null;
   status?: "active" | "inactive";
-};\n
+};

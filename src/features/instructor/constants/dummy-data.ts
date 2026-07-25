@@ -1,10 +1,6 @@
 import type { Instructor } from "../types";
 
 export const DUMMY_COMPANYS: Instructor[] = [
-  { id: 1, code: "ADMIN", name: "Administrator", created_at: "2025-01-15T08:00:00Z", updated_at: "2025-01-15T08:00:00Z" },
-  { id: 2, code: "USER", name: "User", created_at: "2025-01-15T08:00:00Z", updated_at: "2025-01-15T08:00:00Z" },
-  { id: 3, code: "CASHIER", name: "Kasir", created_at: "2025-02-10T10:30:00Z", updated_at: "2025-02-10T10:30:00Z" },
-  { id: 4, code: "MANAGER", name: "Manajer", created_at: "2025-03-05T14:00:00Z", updated_at: "2025-03-05T14:00:00Z" },
-  { id: 5, code: "WAITER", name: "Pelayan", created_at: "2025-03-20T09:15:00Z", updated_at: "2025-03-20T09:15:00Z" },
-  { id: 6, code: "CHEF", name: "Koki", created_at: "2025-04-01T11:00:00Z", updated_at: "2025-04-01T11:00:00Z" },
+  { id: 1, user_id: 2, name: "Dr. Bambang Subianto", email: "bambang@example.com", bio: "Instruktur K3 Berpengalaman 10+ tahun", expertise: "Safety, K3", cv_url: null, is_active: true, created_at: "2025-01-15T08:00:00Z", updated_at: "2025-01-15T08:00:00Z" },
+  { id: 2, user_id: 3, name: "Siti Rahma S.T.", email: "siti.rahma@example.com", bio: "Praktisi Manajemen HR & Leadership", expertise: "Leadership, HR", cv_url: null, is_active: true, created_at: "2025-01-15T08:00:00Z", updated_at: "2025-01-15T08:00:00Z" },
 ];
