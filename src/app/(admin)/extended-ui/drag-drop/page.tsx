@@ -153,8 +153,8 @@ function FileDropZone() {
   const [files, setFiles] = useState([]);
   const [over, setOver] = useState(false);
 
-  const addFiles = (fileList) => {
-    const newFiles = Array.from(fileList).map((f) => ({
+  const addFiles = (fileList: FileList | File[]) => {
+    const newFiles = Array.from(fileList as File[]).map((f: File) => ({
       id: uid(),
       name: f.name,
       size: (f.size / 1024).toFixed(1) + " KB",

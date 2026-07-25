@@ -80,7 +80,7 @@ function Rating({
 }
 
 /* ─── Rating with Label ───────────────────────────── */
-function RatingWithLabel({ value, max = 5, label, count, ...props }: { value: number; max?: number; label?: string; count?: number; [key: string]: any }) {
+function RatingWithLabel({ value, max = 5, label, count, ...props }: { value: number; max?: number; label?: string; count?: string | number; [key: string]: any }) {
   return (
     <div className="flex items-center gap-2">
       <Rating value={value} max={max} readOnly {...props} />
