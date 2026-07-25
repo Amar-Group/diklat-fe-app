@@ -36,22 +36,22 @@ const schemas = [
   }),
 ];
 
-const inputCls = (err) =>
+const inputCls = (err?: any) =>
   `w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 transition-colors bg-card ${
     err ? "border-red-400 focus:ring-red-200 bg-red-50" : "border-border focus:ring-primary/20 focus:border-primary"
   }`;
 
-function FieldErr({ e }) {
+function FieldErr({ e }: { e?: any }) {
   return e ? <p className="text-xs text-red-600 mt-1">✗ {e.message}</p> : null;
 }
 
 export default function WizardPage() {
   const [step, setStep]     = useState(1);
-  const [data, setData]     = useState({});
+  const [data, setData]     = useState<Record<string, any>>({});
   const [done, setDone]     = useState(false);
 
   const form = useForm({
-    resolver: zodResolver(schemas[step - 1] || z.object({})),
+    resolver: zodResolver(schemas[step - 1] || z.object({})) as any,
     mode: "onTouched",
     defaultValues: data,
   });
@@ -153,7 +153,7 @@ export default function WizardPage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-foreground mb-1">Company <span className="text-muted-foreground font-normal">(optional)</span></label>
-                <input {...register("company")} placeholder="Acme Corp" className={inputCls()} />
+                <input {...register("company")} placeholder="Acme Corp" className={inputCls(errors.company)} />
               </div>
               <div>
                 <label className="block text-sm font-medium text-foreground mb-1">Role</label>

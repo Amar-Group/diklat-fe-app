@@ -10,7 +10,7 @@ const tabContent = {
   messages: "This is the Messages tab content. View and reply to all your incoming messages, conversations, and support tickets from here.",
 };
 
-function DemoCard({ title, description, children }) {
+function DemoCard({ title, description, children, className, span2 = false, ...props }: { title?: any; description?: any; children?: any; className?: string; span2?: boolean; [key: string]: any }) {
   return (
     <div className="p-6 bg-card border border-border rounded-xl shadow-sm">
       <h2 className="text-lg font-semibold mb-1">{title}</h2>

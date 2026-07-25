@@ -4,7 +4,7 @@ export type Menu = {
   path: string | null;
   permission_path: string | null;
   icon: string | null;
-  is_visible: boolean;
+  is_visible?: boolean;
   parent_id: number | null;
   parent_name?: string | null;
   created_at: string;

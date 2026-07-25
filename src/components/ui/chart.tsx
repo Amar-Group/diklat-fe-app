@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
-function Chart({ options = {}, series = [], type = "line", height = 320, width = "100%", className = "" }) {
+function Chart({ options = {}, series = [], type = "line", height = 320, width = "100%", className = "" }: { options?: any; series?: any[]; type?: any; height?: number | string; width?: number | string; className?: string }) {
   const { theme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 

@@ -1,7 +1,11 @@
 import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, MoreHorizontal } from "lucide-react";
 
-function Pagination({ className, ...props }) {
+interface PaginationProps extends React.HTMLAttributes<HTMLElement> {
+  className?: string;
+}
+
+function Pagination({ className, ...props }: PaginationProps) {
   return (
     <nav
       data-slot="pagination"
@@ -13,10 +17,23 @@ function Pagination({ className, ...props }) {
   );
 }
 
-function PaginationItem({ className, ...props }) {
+interface PaginationItemProps extends React.HTMLAttributes<HTMLDivElement> {
+  className?: string;
+}
+
+function PaginationItem({ className, ...props }: PaginationItemProps) {
   return (
     <div data-slot="pagination-item" className={cn("", className)} {...props} />
   );
+}
+
+interface PaginationButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  className?: string;
+  isActive?: boolean;
+  disabled?: boolean;
+  size?: any;
+  variant?: any;
+  children?: React.ReactNode;
 }
 
 function PaginationButton({
@@ -27,14 +44,14 @@ function PaginationButton({
   variant = "default",
   children,
   ...props
-}) {
-  const sizes = {
+}: PaginationButtonProps) {
+  const sizes: Record<string, string> = {
     default: "h-9 w-9 text-sm",
     sm: "h-7 w-7 text-xs",
     lg: "h-10 w-10 text-base",
   };
 
-  const variants = {
+  const variants: Record<string, string> = {
     default: isActive
       ? "bg-primary text-primary-foreground font-semibold shadow-sm"
       : "text-muted-foreground hover:bg-muted hover:text-foreground",
@@ -74,7 +91,11 @@ function PaginationButton({
   );
 }
 
-function PaginationEllipsis({ className }) {
+interface PaginationEllipsisProps {
+  className?: string;
+}
+
+function PaginationEllipsis({ className }: PaginationEllipsisProps) {
   return (
     <span
       data-slot="pagination-ellipsis"
@@ -85,7 +106,7 @@ function PaginationEllipsis({ className }) {
   );
 }
 
-function PaginationPrev({ disabled, variant, size, className, ...props }) {
+function PaginationPrev({ disabled, variant, size, className, ...props }: PaginationButtonProps) {
   return (
     <PaginationButton disabled={disabled} variant={variant} size={size} aria-label="Previous page" className={className} {...props}>
       <ChevronLeft className="size-4" />
@@ -93,7 +114,7 @@ function PaginationPrev({ disabled, variant, size, className, ...props }) {
   );
 }
 
-function PaginationNext({ disabled, variant, size, className, ...props }) {
+function PaginationNext({ disabled, variant, size, className, ...props }: PaginationButtonProps) {
   return (
     <PaginationButton disabled={disabled} variant={variant} size={size} aria-label="Next page" className={className} {...props}>
       <ChevronRight className="size-4" />
@@ -101,7 +122,7 @@ function PaginationNext({ disabled, variant, size, className, ...props }) {
   );
 }
 
-function PaginationFirst({ disabled, variant, size, className, ...props }) {
+function PaginationFirst({ disabled, variant, size, className, ...props }: PaginationButtonProps) {
   return (
     <PaginationButton disabled={disabled} variant={variant} size={size} aria-label="First page" className={className} {...props}>
       <ChevronsLeft className="size-4" />
@@ -109,7 +130,7 @@ function PaginationFirst({ disabled, variant, size, className, ...props }) {
   );
 }
 
-function PaginationLast({ disabled, variant, size, className, ...props }) {
+function PaginationLast({ disabled, variant, size, className, ...props }: PaginationButtonProps) {
   return (
     <PaginationButton disabled={disabled} variant={variant} size={size} aria-label="Last page" className={className} {...props}>
       <ChevronsRight className="size-4" />

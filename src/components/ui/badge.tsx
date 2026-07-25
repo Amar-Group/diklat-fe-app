@@ -50,7 +50,7 @@ const badgeVariants = cva(
   }
 );
 
-function Badge({ className = undefined, variant = undefined, size = undefined, rounded = undefined, dot = undefined, children, ...props }) {
+function Badge({ className = undefined, variant = undefined, size = undefined, rounded = undefined, dot = undefined, children, ...props }: { className?: string; variant?: any; size?: any; rounded?: any; dot?: boolean; children?: React.ReactNode; [key: string]: any }) {
   return (
     <span
       data-slot="badge"

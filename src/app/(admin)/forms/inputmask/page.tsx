@@ -4,7 +4,7 @@ import { IMaskInput } from "react-imask";
 
 const inputCls = "w-full border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors bg-card font-mono";
 
-function Section({ title, description, children }) {
+function Section({ title, description, children, className, ...props }: { title?: any; description?: any; children?: any; className?: string; [key: string]: any }) {
   return (
     <div className="p-6 bg-card border border-border rounded-xl shadow-sm space-y-4">
       <div>
@@ -16,7 +16,7 @@ function Section({ title, description, children }) {
   );
 }
 
-function MaskField({ label, hint, ...maskProps }) {
+function MaskField({ label, hint, className, ...maskProps }: { label?: any; hint?: any; className?: string; [key: string]: any }) {
   return (
     <div className="space-y-1.5">
       <label className="block text-sm font-medium text-foreground">{label}</label>

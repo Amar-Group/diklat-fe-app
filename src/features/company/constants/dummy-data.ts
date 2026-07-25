@@ -1,10 +1,7 @@
 import type { Company } from "../types";
 
 export const DUMMY_COMPANYS: Company[] = [
-  { id: 1, code: "ADMIN", name: "Administrator", created_at: "2025-01-15T08:00:00Z", updated_at: "2025-01-15T08:00:00Z" },
-  { id: 2, code: "USER", name: "User", created_at: "2025-01-15T08:00:00Z", updated_at: "2025-01-15T08:00:00Z" },
-  { id: 3, code: "CASHIER", name: "Kasir", created_at: "2025-02-10T10:30:00Z", updated_at: "2025-02-10T10:30:00Z" },
-  { id: 4, code: "MANAGER", name: "Manajer", created_at: "2025-03-05T14:00:00Z", updated_at: "2025-03-05T14:00:00Z" },
-  { id: 5, code: "WAITER", name: "Pelayan", created_at: "2025-03-20T09:15:00Z", updated_at: "2025-03-20T09:15:00Z" },
-  { id: 6, code: "CHEF", name: "Koki", created_at: "2025-04-01T11:00:00Z", updated_at: "2025-04-01T11:00:00Z" },
+  { id: 1, name: "PT Amar Group", address: "Jakarta", phone: "021-1234567", email: "info@amargroup.com", status: "active", created_at: "2025-01-15T08:00:00Z", updated_at: "2025-01-15T08:00:00Z" },
+  { id: 2, name: "PT Tekno Indonesia", address: "Bandung", phone: "022-7654321", email: "contact@tekno.co.id", status: "active", created_at: "2025-01-15T08:00:00Z", updated_at: "2025-01-15T08:00:00Z" },
+  { id: 3, name: "CV Solusi Bersama", address: "Surabaya", phone: "031-9876543", email: "admin@solusibersama.com", status: "active", created_at: "2025-02-10T10:30:00Z", updated_at: "2025-02-10T10:30:00Z" },
 ];

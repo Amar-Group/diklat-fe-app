@@ -20,4 +20,4 @@ export type UpdateCourseRequest = {
   description?: string | null;
   competencies?: string | null;
   is_active?: boolean;
-};\n
+};

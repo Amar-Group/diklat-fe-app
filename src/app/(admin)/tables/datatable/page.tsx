@@ -36,7 +36,7 @@ import {
   ArrowUpDown, SlidersHorizontal, Download, Trash2, Edit, Eye,
 } from "lucide-react";
 
-/* ── Data ── */
+/* -- Data -- */
 function genData(count) {
   const names = ["Alex Johnson","Jane Doe","Bob Smith","Sara Connor","Mike Chen","Emily Davis","Tom Brown","Lisa Wang","Chris Lee","Amy Park","David Kim","Rachel Green","James White","Mia Black","Noah Hill"];
   const roles = ["Admin","Editor","Viewer","Manager","Developer"];
@@ -75,7 +75,7 @@ function Badge({ label, colorMap }) {
   return <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold whitespace-nowrap ${cls}`}>{label}</span>;
 }
 
-/* ── Columns ── */
+/* -- Columns -- */
 const columns = [
   {
     id: "select",

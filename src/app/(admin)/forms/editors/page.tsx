@@ -16,7 +16,7 @@ import {
 
 const COLORS = ["#000000","#374151","#ef4444","#f59e0b","#10b981","#3b82f6","#8b5cf6","#ec4899"];
 
-function ToolbarBtn({ onClick, active, disabled, children, title }) {
+function ToolbarBtn({ onClick, active, disabled, children, title }: { onClick?: any; active?: any; disabled?: any; children?: any; title?: any }) {
   return (
     <button type="button" title={title} onClick={onClick} disabled={disabled}
       className={`p-1.5 rounded-md transition-colors text-sm ${active ? "bg-primary/10 text-primary" : "text-muted-foreground hover:bg-muted hover:text-foreground"} ${disabled ? "opacity-30 cursor-not-allowed" : ""}`}
@@ -28,7 +28,7 @@ function ToolbarBtn({ onClick, active, disabled, children, title }) {
 
 function Divider() { return <div className="w-px h-5 bg-border mx-0.5" />; }
 
-function RichEditor({ placeholder = "Write something amazing…" }) {
+function RichEditor({ placeholder = "Write something amazing…" }: { placeholder?: string }) {
   const editor = useEditor({
     extensions: [
       StarterKit,

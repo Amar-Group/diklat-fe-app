@@ -11,7 +11,13 @@ import {
   PaginationPrev,
 } from "@/components/ui/pagination";
 
-function DemoPagination({ variant = "default", size = "default", label }) {
+interface DemoPaginationProps {
+  variant?: string;
+  size?: string;
+  label?: any;
+}
+
+function DemoPagination({ variant = "default", size = "default", label }: DemoPaginationProps) {
   const [page, setPage] = useState(3);
   const total = 10;
 
@@ -33,7 +39,7 @@ function DemoPagination({ variant = "default", size = "default", label }) {
               isActive={p === page}
               variant={variant}
               size={size}
-              onClick={() => setPage(p)}
+              onClick={() => setPage(Number(p))}
             >
               {p}
             </PaginationButton>
@@ -118,7 +124,7 @@ export default function PaginationPage() {
                   key={`fl-${p}`}
                   isActive={p === page1}
                   variant="outline"
-                  onClick={() => setPage1(p)}
+                  onClick={() => setPage1(Number(p))}
                 >
                   {p}
                 </PaginationButton>

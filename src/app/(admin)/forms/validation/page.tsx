@@ -11,17 +11,17 @@ const inputCls = (err) =>
     err ? "border-red-400 focus:ring-red-200 bg-red-50" : "border-border focus:ring-primary/20 focus:border-primary"
   }`;
 
-function FieldError({ error }) {
+function FieldError({ error }: { error?: any }) {
   if (!error) return null;
   return <p className="text-xs text-red-600 mt-1">✗ {error.message}</p>;
 }
 
-function FieldSuccess({ show, message = "Looks good!" }) {
+function FieldSuccess({ show, message = "Looks good!" }: { show?: any; message?: string }) {
   if (!show) return null;
   return <p className="text-xs text-green-600 mt-1">✓ {message}</p>;
 }
 
-/* ─── 1. Registration Schema ─────────────────────── */
+/* --- 1. Registration Schema ----------------------- */
 const registerSchema = z.object({
   firstName: z.string().min(2, "First name must be at least 2 characters"),
   lastName:  z.string().min(2, "Last name must be at least 2 characters"),
@@ -31,10 +31,10 @@ const registerSchema = z.object({
                .regex(/[0-9]/, "Must contain at least one number"),
   confirm:   z.string(),
   role:      z.string().min(1, "Please select a role"),
-  terms:     z.literal(true, { errorMap: () => ({ message: "You must accept the terms" }) }),
+  terms:     z.literal(true, "You must accept the terms"),
 }).refine((d) => d.password === d.confirm, { message: "Passwords do not match", path: ["confirm"] });
 
-/* ─── 2. Profile Schema ───────────────────────────── */
+/* --- 2. Profile Schema ----------------------------- */
 const profileSchema = z.object({
   username: z.string().min(3).max(20).regex(/^[a-z0-9_]+$/, "Lowercase letters, numbers, underscores only"),
   bio:      z.string().max(200, "Bio must be 200 characters or less").optional(),
@@ -43,7 +43,7 @@ const profileSchema = z.object({
   age:      z.coerce.number().min(18, "Must be at least 18").max(120, "Invalid age"),
 });
 
-function Section({ title, description, children }) {
+function Section({ title, description, children, className, ...props }: { title?: any; description?: any; children?: any; className?: string; [key: string]: any }) {
   return (
     <div className="p-6 bg-card border border-border rounded-xl shadow-sm space-y-4">
       <div>

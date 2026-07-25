@@ -4,12 +4,12 @@ import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
 
-function Modal({ open, onClose, className = undefined, children }) {
-  const overlayRef = useRef(null);
+function Modal({ open, onClose, className = undefined, children }: { open?: boolean; onClose?: () => void; className?: string; children?: React.ReactNode }) {
+  const overlayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!open) return;
-    const handleKey = (e) => { if (e.key === "Escape") onClose?.(); };
+    const handleKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose?.(); };
     document.addEventListener("keydown", handleKey);
     document.body.style.overflow = "hidden";
     return () => {
@@ -46,7 +46,7 @@ function Modal({ open, onClose, className = undefined, children }) {
   );
 }
 
-function ModalHeader({ className = undefined, children }) {
+function ModalHeader({ className = undefined, children }: { className?: string; children?: React.ReactNode }) {
   return (
     <div
       data-slot="modal-header"
@@ -57,7 +57,7 @@ function ModalHeader({ className = undefined, children }) {
   );
 }
 
-function ModalTitle({ className = undefined, children }) {
+function ModalTitle({ className = undefined, children }: { className?: string; children?: React.ReactNode }) {
   return (
     <h2 data-slot="modal-title" className={cn("text-base font-semibold leading-tight", className)}>
       {children}
@@ -65,7 +65,7 @@ function ModalTitle({ className = undefined, children }) {
   );
 }
 
-function ModalBody({ className = undefined, children }) {
+function ModalBody({ className = undefined, children }: { className?: string; children?: React.ReactNode }) {
   return (
     <div data-slot="modal-body" className={cn("px-6 py-4 flex-1 overflow-y-auto", className)}>
       {children}
@@ -73,7 +73,7 @@ function ModalBody({ className = undefined, children }) {
   );
 }
 
-function ModalFooter({ className = undefined, children }) {
+function ModalFooter({ className = undefined, children }: { className?: string; children?: React.ReactNode }) {
   return (
     <div
       data-slot="modal-footer"
@@ -84,7 +84,7 @@ function ModalFooter({ className = undefined, children }) {
   );
 }
 
-function ModalClose({ onClose, className = undefined }) {
+function ModalClose({ onClose, className = undefined }: { onClose?: () => void; className?: string }) {
   return (
     <button
       data-slot="modal-close"

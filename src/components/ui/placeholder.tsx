@@ -36,7 +36,15 @@ const placeholderVariants = cva(
   }
 );
 
-function Placeholder({ className, animation, color, size, style, rounded, ...props }) {
+interface PlaceholderProps extends React.HTMLAttributes<HTMLSpanElement> {
+  className?: string;
+  animation?: any;
+  color?: any;
+  size?: any;
+  rounded?: any;
+}
+
+function Placeholder({ className, animation, color, size, style, rounded, ...props }: PlaceholderProps) {
   return (
     <span
       data-slot="placeholder"
@@ -53,7 +61,7 @@ function Placeholder({ className, animation, color, size, style, rounded, ...pro
 }
 
 /* Shimmer effect variant using gradient */
-function PlaceholderShimmer({ className, height = "h-4", width = "w-full", rounded = "rounded" }) {
+function PlaceholderShimmer({ className, height = "h-4", width = "w-full", rounded = "rounded" }: { className?: string; height?: string; width?: string; rounded?: string }) {
   return (
     <span
       data-slot="placeholder-shimmer"
@@ -70,7 +78,7 @@ function PlaceholderShimmer({ className, height = "h-4", width = "w-full", round
 }
 
 /* Pre-built skeleton blocks */
-function SkeletonText({ lines = 3, className }) {
+function SkeletonText({ lines = 3, className }: { lines?: number; className?: string }) {
   const widths = ["w-full", "w-5/6", "w-4/6", "w-3/4", "w-full", "w-2/3"];
   return (
     <div className={cn("space-y-2", className)}>
@@ -81,7 +89,7 @@ function SkeletonText({ lines = 3, className }) {
   );
 }
 
-function SkeletonCard({ showImage = true, lines = 3, className }) {
+function SkeletonCard({ showImage = true, lines = 3, className }: { showImage?: boolean; lines?: number; className?: string }) {
   return (
     <div className={cn("border border-border rounded-xl overflow-hidden", className)}>
       {showImage && <Placeholder className="w-full h-40 rounded-none" />}
@@ -97,7 +105,7 @@ function SkeletonCard({ showImage = true, lines = 3, className }) {
   );
 }
 
-function SkeletonAvatar({ size = "size-10", rounded = "rounded-full", className }) {
+function SkeletonAvatar({ size = "size-10", rounded = "rounded-full", className }: { size?: string; rounded?: string; className?: string }) {
   return (
     <Placeholder
       className={cn(size, rounded, "shrink-0", className)}
@@ -105,7 +113,7 @@ function SkeletonAvatar({ size = "size-10", rounded = "rounded-full", className 
   );
 }
 
-function SkeletonListItem({ hasAvatar = true, className }) {
+function SkeletonListItem({ hasAvatar = true, className }: { hasAvatar?: boolean; className?: string }) {
   return (
     <div className={cn("flex items-center gap-3 py-3", className)}>
       {hasAvatar && <SkeletonAvatar />}

@@ -5,7 +5,7 @@ import { useStore } from "@/stores/use-store";
 import { Button } from "@/components/ui/button";
 
 export function ClientDemo() {
-  const { count, increment, decrement, reset } = useStore();
+  const { isSidebarOpen, toggleSidebar, clearCart, getCartCount } = useStore();
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ["repoData"],
@@ -18,12 +18,16 @@ export function ClientDemo() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen gap-8 p-8 bg-background text-foreground">
       <div className="flex flex-col items-center gap-4 p-8 border rounded-xl shadow-sm bg-card w-full max-w-md">
-        <h2 className="text-2xl font-bold">Zustand Counter</h2>
-        <div className="text-4xl font-mono">{count}</div>
+        <h2 className="text-2xl font-bold">Zustand Store</h2>
+        <div className="text-sm text-muted-foreground">
+          Sidebar: <span className="font-semibold">{isSidebarOpen ? "Open" : "Closed"}</span>
+        </div>
+        <div className="text-sm text-muted-foreground">
+          Cart items: <span className="font-semibold">{getCartCount()}</span>
+        </div>
         <div className="flex gap-2">
-          <Button onClick={decrement} variant="outline">-</Button>
-          <Button onClick={reset} variant="secondary">Reset</Button>
-          <Button onClick={increment}>+</Button>
+          <Button onClick={toggleSidebar} variant="outline">Toggle Sidebar</Button>
+          <Button onClick={clearCart} variant="secondary">Clear Cart</Button>
         </div>
       </div>
 
