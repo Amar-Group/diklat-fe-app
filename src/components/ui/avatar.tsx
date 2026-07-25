@@ -31,15 +31,15 @@ interface AvatarProps {
   src?: string | null;
   alt?: string;
   initials?: string;
-  size?: keyof typeof sizeMap;
-  rounded?: "full" | "md" | "lg";
-  status?: keyof typeof statusColorMap;
+  size?: string;
+  rounded?: "full" | "md" | "lg" | "none";
+  status?: string;
   color?: string;
   className?: string;
 }
 
 function Avatar({ src, alt = "", initials, size = "default", rounded = "full", status, color = "bg-blue-100 text-blue-700", className }: AvatarProps) {
-  const roundedClass = rounded === "full" ? "rounded-full" : rounded === "md" ? "rounded-xl" : "rounded-lg";
+  const roundedClass = rounded === "full" ? "rounded-full" : rounded === "md" ? "rounded-xl" : rounded === "none" ? "rounded-none" : "rounded-lg";
 
   return (
     <div className={cn("relative inline-flex shrink-0", className)}>

@@ -1,7 +1,12 @@
 import { cn } from "@/lib/utils";
 import { ChevronRight, Slash, ChevronLast, ArrowRight } from "lucide-react";
 
-function Breadcrumb({ className = undefined, children, separator = "chevron", ...props }) {
+interface BreadcrumbProps extends React.HTMLAttributes<HTMLElement> {
+  separator?: "chevron" | "slash" | "arrow" | "dot" | "dash" | "text";
+  children?: React.ReactNode;
+}
+
+function Breadcrumb({ className = undefined, children, separator = "chevron", ...props }: BreadcrumbProps) {
   const separators = {
     chevron: <ChevronRight className="size-3.5 text-muted-foreground shrink-0" />,
     slash:   <Slash className="size-3 text-muted-foreground shrink-0 rotate-[-20deg]" />,
@@ -32,7 +37,14 @@ function Breadcrumb({ className = undefined, children, separator = "chevron", ..
   );
 }
 
-function BreadcrumbItem({ href, active = false, children, className = undefined }) {
+interface BreadcrumbItemProps {
+  href?: string;
+  active?: boolean;
+  children?: React.ReactNode;
+  className?: string;
+}
+
+function BreadcrumbItem({ href, active = false, children, className = undefined }: BreadcrumbItemProps) {
   if (active || !href) {
     return (
       <span
@@ -62,7 +74,11 @@ function BreadcrumbItem({ href, active = false, children, className = undefined 
   );
 }
 
-function BreadcrumbEllipsis({ className = undefined }) {
+interface BreadcrumbEllipsisProps {
+  className?: string;
+}
+
+function BreadcrumbEllipsis({ className = undefined }: BreadcrumbEllipsisProps) {
   return (
     <span
       data-slot="breadcrumb-ellipsis"
