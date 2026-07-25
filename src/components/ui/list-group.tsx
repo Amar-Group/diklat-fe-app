@@ -26,6 +26,11 @@ interface ListGroupItemProps extends React.HTMLAttributes<HTMLElement> {
   active?: boolean;
   disabled?: boolean;
   as?: any;
+  href?: string;
+  target?: string;
+  rel?: string;
+  type?: string;
+  [key: string]: any;
 }
 
 function ListGroupItem({
