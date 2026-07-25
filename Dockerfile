@@ -28,6 +28,14 @@ COPY . .
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 
+# Declare build args passed by docker compose
+ARG NEXT_PUBLIC_API_URL
+ARG NEXT_PUBLIC_APP_TOKEN
+
+# Convert build args to ENV so Next.js can read them during build time
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_APP_TOKEN=$NEXT_PUBLIC_APP_TOKEN
+
 # Build Next.js (produces .next/standalone + .next/static)
 RUN bun run build
 
