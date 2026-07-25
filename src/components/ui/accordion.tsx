@@ -5,7 +5,16 @@ import { cn } from "@/lib/utils";
 import { ChevronDown, Plus, Minus } from "lucide-react";
 
 /* ─── Context ─────────────────────────────────────── */
-const AccordionContext = createContext(null);
+const AccordionContext = createContext<any>(null);
+
+interface AccordionProps {
+  children?: React.ReactNode;
+  type?: "single" | "multiple";
+  defaultValue?: string | string[];
+  className?: string;
+  flush?: boolean;
+  iconType?: "chevron" | "plus";
+}
 
 /* ─── Root ────────────────────────────────────────── */
 function Accordion({
@@ -15,13 +24,13 @@ function Accordion({
   className,
   flush = false,
   iconType = "chevron", // "chevron" | "plus"
-}) {
+}: AccordionProps) {
   const [openItems, setOpenItems] = useState(() => {
     if (!defaultValue) return new Set();
     return new Set(Array.isArray(defaultValue) ? defaultValue : [defaultValue]);
   });
 
-  const toggle = (value) => {
+  const toggle = (value: string) => {
     setOpenItems((prev) => {
       const next = new Set(prev);
       if (next.has(value)) {
@@ -50,8 +59,14 @@ function Accordion({
   );
 }
 
+interface AccordionItemProps {
+  value?: string;
+  children?: React.ReactNode;
+  className?: string;
+}
+
 /* ─── Item ────────────────────────────────────────── */
-function AccordionItem({ value, children, className }) {
+function AccordionItem({ value, children, className }: AccordionItemProps) {
   return (
     <div data-slot="accordion-item" data-value={value} className={cn("", className)}>
       {children}
@@ -59,10 +74,17 @@ function AccordionItem({ value, children, className }) {
   );
 }
 
+interface AccordionTriggerProps {
+  value: string;
+  children?: React.ReactNode;
+  className?: string;
+  icon?: any;
+}
+
 /* ─── Trigger ─────────────────────────────────────── */
-function AccordionTrigger({ value, children, className, icon: CustomIcon }) {
+function AccordionTrigger({ value, children, className, icon: CustomIcon }: AccordionTriggerProps) {
   const { openItems, toggle, iconType } = useContext(AccordionContext);
-  const isOpen = openItems.has(value);
+  const isOpen = openItems ? openItems.has(value) : false;
 
   const Icon = CustomIcon || (iconType === "plus"
     ? (isOpen ? Minus : Plus)
@@ -71,7 +93,7 @@ function AccordionTrigger({ value, children, className, icon: CustomIcon }) {
   return (
     <button
       data-slot="accordion-trigger"
-      onClick={() => toggle(value)}
+      onClick={() => toggle && toggle(value)}
       aria-expanded={isOpen}
       className={cn(
         "w-full flex items-center justify-between px-4 py-4 text-sm font-medium text-left",
@@ -90,11 +112,17 @@ function AccordionTrigger({ value, children, className, icon: CustomIcon }) {
   );
 }
 
+interface AccordionContentProps {
+  value: string;
+  children?: React.ReactNode;
+  className?: string;
+}
+
 /* ─── Content (animated) ──────────────────────────── */
-function AccordionContent({ value, children, className }) {
+function AccordionContent({ value, children, className }: AccordionContentProps) {
   const { openItems } = useContext(AccordionContext);
-  const isOpen = openItems.has(value);
-  const ref = useRef(null);
+  const isOpen = openItems ? openItems.has(value) : false;
+  const ref = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(isOpen ? "auto" : "0px");
   const [visible, setVisible] = useState(isOpen);
 
