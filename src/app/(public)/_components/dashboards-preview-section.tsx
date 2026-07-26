@@ -1,10 +1,10 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Tabs, TabList, Tab, TabPanel } from "@/components/ui/tabs";
-import { CheckCircle2, LayoutDashboard, UserCheck, Presentation, ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { CheckCircle2, LayoutDashboard, UserCheck, Presentation, ArrowRight, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface PreviewPlatform {
   id: string;
@@ -78,6 +78,26 @@ const PLATFORM_PREVIEWS: PreviewPlatform[] = [
 ];
 
 export function DashboardsPreviewSection() {
+  const [activeTab, setActiveTab] = useState<string>("hrd");
+  const [isPaused, setIsPaused] = useState<boolean>(false);
+
+  // Automatic Tab Rotator (cycles every 6 seconds unless user pauses/hovers)
+  useEffect(() => {
+    if (isPaused) return;
+
+    const timer = setInterval(() => {
+      setActiveTab((prev) => {
+        const currentIndex = PLATFORM_PREVIEWS.findIndex((p) => p.id === prev);
+        const nextIndex = (currentIndex + 1) % PLATFORM_PREVIEWS.length;
+        return PLATFORM_PREVIEWS[nextIndex].id;
+      });
+    }, 6000);
+
+    return () => clearInterval(timer);
+  }, [isPaused]);
+
+  const activePlatform = PLATFORM_PREVIEWS.find((p) => p.id === activeTab) || PLATFORM_PREVIEWS[0];
+
   return (
     <section className="py-16 sm:py-20 lg:py-24 bg-[#0F172A] relative overflow-hidden">
       {/* Background Gradients */}
@@ -85,111 +105,162 @@ export function DashboardsPreviewSection() {
       <div className="absolute bottom-0 left-0 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-[#F97316]/20 rounded-full blur-[100px] opacity-30 translate-y-1/2 -translate-x-1/4 pointer-events-none" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-10 sm:mb-14"
+        <div 
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          className="w-full"
         >
-          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4 sm:mb-6 tracking-tight">
-            Satu Platform, Multi-Akses
-          </h2>
-          <p className="text-slate-400 text-base sm:text-lg leading-relaxed">
-            Akses khusus yang dirancang sesuai kebutuhan peran masing-masing pengguna untuk pengalaman yang efisien.
-          </p>
-        </motion.div>
+          {/* Header & Tabs Navigation Row (65:35 ratio) */}
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start justify-between mb-10 sm:mb-14">
+            
+            {/* Left Header Section (65%) */}
+            <div className="w-full lg:w-[65%] text-left">
+              <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4 tracking-tight leading-[1.15]">
+                Satu Platform, Multi-Akses
+              </h2>
+              <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+                "Platform ini menghadirkan sistem manajemen pengguna terintegrasi yang memberikan akses eksklusif sesuai dengan wewenang dan tanggung jawab masing-masing entitas. Dengan tampilan antarmuka yang dinamis dan relevan, setiap individu dapat menyelesaikan tugas dengan lebih cepat, meningkatkan efisiensi operasional, dan mengoptimalkan produktivitas kerja secara keseluruhan."
+              </p>
+            </div>
 
-        {/* Tabs Component */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <Tabs defaultValue="hrd" className="w-full">
-            {/* Tab Navigation */}
-            <div className="flex justify-center mb-8 sm:mb-12 overflow-x-auto pb-2">
-              <TabList variant="pill" className="bg-slate-800/80 border border-slate-700 p-1.5 flex flex-wrap sm:flex-nowrap justify-center gap-1 max-w-full rounded-2xl shadow-lg backdrop-blur-md">
-                {PLATFORM_PREVIEWS.map((item) => (
-                  <Tab 
-                    key={item.id} 
-                    value={item.id} 
-                    icon={item.icon} 
-                    className="data-[state=active]:bg-[#F97316] data-[state=active]:text-white text-slate-300 gap-2 px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold rounded-xl transition-all duration-300"
+            {/* Right Tabs Navigation (35%) - Stacked Buttons with Auto-Rotate Progress Bar */}
+            <div className="w-full lg:w-[35%] flex flex-col gap-3">
+              {PLATFORM_PREVIEWS.map((item) => {
+                const isActive = activeTab === item.id;
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => {
+                      setActiveTab(item.id);
+                      setIsPaused(true);
+                    }}
+                    className={`group relative w-full text-left p-4 rounded-2xl border transition-all duration-300 cursor-pointer overflow-hidden select-none ${
+                      isActive
+                        ? "bg-[#1E1B4B] border-[#F97316] shadow-xl shadow-orange-500/10"
+                        : "bg-slate-800/50 border-slate-700/60 hover:bg-slate-800/80 hover:border-slate-600"
+                    }`}
                   >
-                    {item.label}
-                  </Tab>
-                ))}
-              </TabList>
-            </div>
+                    {/* Auto-rotate progress line for active tab */}
+                    {isActive && !isPaused && (
+                      <motion.div
+                        key={item.id}
+                        initial={{ width: "0%" }}
+                        animate={{ width: "100%" }}
+                        transition={{ duration: 6, ease: "linear" }}
+                        className="absolute bottom-0 left-0 h-1 bg-[#F97316]"
+                      />
+                    )}
 
-            {/* Tab Panels */}
-            <div className="bg-slate-800/40 backdrop-blur-xl border border-slate-700/80 rounded-2xl p-5 sm:p-8 lg:p-10 shadow-2xl">
-              {PLATFORM_PREVIEWS.map((platform) => (
-                <TabPanel key={platform.id} value={platform.id} className="m-0 focus-visible:outline-none focus-visible:ring-0">
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                    
-                    {/* Clean Illustration Image (No background frame, no terminal wrapper) */}
-                    <div className="lg:col-span-7 order-2 lg:order-1 flex items-center justify-center">
-                      <div className="relative w-full max-w-lg lg:max-w-none">
-                        <Image
-                          src={platform.image}
-                          alt={platform.title}
-                          width={1200}
-                          height={750}
-                          className="w-full h-auto object-contain drop-shadow-xl"
-                          priority
-                        />
-                      </div>
-                    </div>
-
-                    {/* Content Details & Dynamic Button (Right / Bottom) */}
-                    <div className="lg:col-span-5 order-1 lg:order-2 space-y-5 sm:space-y-6 text-left">
-                      <div>
-                        <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold text-slate-300 bg-slate-800 border border-slate-700 mb-3">
-                          {platform.badge}
-                        </span>
-                        <h3 className="font-display font-bold text-2xl sm:text-3xl text-white tracking-tight leading-snug">
-                          {platform.title}
-                        </h3>
-                      </div>
-
-                      <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                        {platform.description}
-                      </p>
-
-                      <ul className="space-y-3 pt-1">
-                        {platform.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-200">
-                            <CheckCircle2 className={`h-5 w-5 ${platform.checkColor} shrink-0 mt-0.5`} />
-                            <span className="leading-snug">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      {/* Dynamic Preview Platform Button */}
-                      <div className="pt-3 sm:pt-4">
-                        <Link 
-                          href={platform.previewUrl}
-                          className="w-full sm:w-auto h-12 px-6 sm:px-8 bg-[#F97316] hover:bg-[#EA580C] text-white font-semibold rounded-xl inline-flex items-center justify-center gap-2.5 shadow-xl shadow-orange-500/20 transition-all duration-300 group"
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3.5">
+                        <div
+                          className={`p-2.5 rounded-xl transition-colors duration-300 shrink-0 ${
+                            isActive
+                              ? "bg-[#F97316] text-white"
+                              : "bg-slate-800 text-slate-400 group-hover:text-white"
+                          }`}
                         >
-                          <span>{platform.buttonText}</span>
-                          <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
-                        </Link>
+                          <item.icon className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <div
+                            className={`text-base font-bold transition-colors ${
+                              isActive ? "text-white" : "text-slate-300 group-hover:text-white"
+                            }`}
+                          >
+                            {item.label}
+                          </div>
+                          <div
+                            className={`text-xs transition-colors ${
+                              isActive ? "text-orange-200" : "text-slate-400"
+                            }`}
+                          >
+                            {item.badge}
+                          </div>
+                        </div>
                       </div>
-                    </div>
 
-                  </div>
-                </TabPanel>
-              ))}
+                      <ChevronRight
+                        className={`w-5 h-5 transition-transform duration-300 ${
+                          isActive
+                            ? "text-[#F97316] translate-x-0.5"
+                            : "text-slate-600 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5"
+                        }`}
+                      />
+                    </div>
+                  </button>
+                );
+              })}
             </div>
-          </Tabs>
-        </motion.div>
+          </div>
+
+          {/* Active Tab Content Area with Smooth Motion Left-to-Right */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activePlatform.id}
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 30 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center border-t border-slate-800/80 pt-8 lg:pt-10"
+            >
+              {/* Illustration Image (65%) */}
+              <div className="lg:col-span-7 order-2 lg:order-1 flex items-center justify-center">
+                <div className="relative w-full max-w-lg lg:max-w-none">
+                  <Image
+                    src={activePlatform.image}
+                    alt={activePlatform.title}
+                    width={1200}
+                    height={750}
+                    className="w-full h-auto object-contain drop-shadow-2xl"
+                    priority
+                  />
+                </div>
+              </div>
+
+              {/* Content Details & Dynamic Button (35%) */}
+              <div className="lg:col-span-5 order-1 lg:order-2 space-y-5 text-left">
+                <div>
+                  <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold text-slate-300 bg-slate-800 border border-slate-700 mb-3">
+                    {activePlatform.badge}
+                  </span>
+                  <h3 className="font-display font-bold text-2xl sm:text-3xl text-white tracking-tight leading-snug">
+                    {activePlatform.title}
+                  </h3>
+                </div>
+
+                <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                  {activePlatform.description}
+                </p>
+
+                <ul className="space-y-3 pt-1">
+                  {activePlatform.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-200">
+                      <CheckCircle2 className={`h-5 w-5 ${activePlatform.checkColor} shrink-0 mt-0.5`} />
+                      <span className="leading-snug">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Dynamic Preview Platform Button */}
+                <div className="pt-3 sm:pt-4">
+                  <Link 
+                    href={activePlatform.previewUrl}
+                    className="w-full sm:w-auto h-12 px-6 sm:px-8 bg-[#F97316] hover:bg-[#EA580C] text-white font-semibold rounded-xl inline-flex items-center justify-center gap-2.5 shadow-xl shadow-orange-500/20 transition-all duration-300 group"
+                  >
+                    <span>{activePlatform.buttonText}</span>
+                    <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
     </section>
   );
 }
+
 
 
