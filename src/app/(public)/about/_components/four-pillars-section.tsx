@@ -46,9 +46,6 @@ export function FourPillarsSection() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <div className="inline-block px-3 py-1 rounded-full bg-orange-100 border border-orange-200 mb-6">
-            <span className="text-sm font-semibold text-[#F97316] tracking-wide uppercase">Value Proposition</span>
-          </div>
           <h2 className="font-display font-bold text-3xl sm:text-4xl text-[#1E1B4B] mb-6 leading-tight">
             Kenapa Memilih Kami?
           </h2>
