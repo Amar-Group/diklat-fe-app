@@ -26,14 +26,14 @@ export function AboutSection({ photoUrl, adminData }: AboutSectionProps = {}) {
   const leaderTitle = adminData?.leaderTitle || "Widyaiswara Ahli Utama BKN";
 
   return (
-    <section id="about" className="py-16 sm:py-20 lg:py-24 bg-[#FAFAF9] relative">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        
+    <section id="about" className="pt-24 sm:pt-22 lg:pt-20 pb-16 sm:pb-20 lg:pb-24 bg-[#FAFAF9] relative">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+
         {/* Main Grid: Visual Left & Content Right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16 lg:mb-20">
-          
+
           {/* Visual Side (Left) - Clean & Structured */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -42,13 +42,14 @@ export function AboutSection({ photoUrl, adminData }: AboutSectionProps = {}) {
           >
             <div className="bg-white rounded-2xl border border-slate-200/80 shadow-md overflow-hidden">
               {/* Photo Container */}
-              <div className="relative aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5] w-full bg-slate-900 overflow-hidden">
+              <div className="relative h-[280px] sm:h-[500px] lg:h-[500px] w-full bg-slate-900 overflow-hidden">
                 <Image
                   src={displayPhotoUrl}
                   alt={leaderName}
                   fill
                   className="object-cover object-top"
                   priority
+                  sizes="(max-width: 1024px) 100vw, 40vw"
                 />
               </div>
 
@@ -70,43 +71,63 @@ export function AboutSection({ photoUrl, adminData }: AboutSectionProps = {}) {
           </motion.div>
 
           {/* Content Side (Right) */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:col-span-7"
           >
-            <div className="inline-block px-3.5 py-1 rounded-full bg-indigo-50 border border-indigo-100 mb-4 sm:mb-5">
-              <span className="text-xs sm:text-sm font-semibold text-[#1E1B4B] tracking-wide uppercase">Tentang Kami</span>
-            </div>
-            
-            <h2 className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-[#1E1B4B] mb-5 leading-tight">
+            <h2 className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-[#1E1B4B] mb-6 leading-tight">
               Mitra Terpercaya untuk Pengembangan Kompetensi SDM
             </h2>
-            
-            <p className="text-slate-600 mb-6 text-base sm:text-lg leading-relaxed">
-              <strong className="text-slate-900 font-semibold">PT HARAPAN AMAR JAYA</strong> adalah Badan Hukum yang bergerak dalam Penyedia Sumber Daya Manusia dan Manajemen Fungsi Sumber Daya Manusia, Pelatihan Kerja Teknologi Informasi dan Komunikasi Perusahaan, Pelatihan Kerja Bisnis dan Manajemen Perusahaan, Pelatihan Kerja Perusahaan Lainnya, serta Pendidikan dan Pelatihan Pemerintah.
-            </p>
-            
-            <div className="mb-8 space-y-4">
-              <div className="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-xs">
-                <h3 className="font-bold text-[#1E1B4B] text-base sm:text-lg mb-1 flex items-center gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-[#F97316]" />
-                  Visi
-                </h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed pl-7">
-                  Menjadi lembaga pelatihan terdepan yang menghasilkan sumber daya manusia kompeten, kreatif, dan berdaya saing tinggi.
+
+            {/* 1 Row 2 Columns: Column 1 Description (Left) & Column 2 Logo (Right, Larger & Responsive) */}
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-center mb-8">
+              {/* Column 1 (Left): Company Description Text */}
+              <div className="md:col-span-7 lg:col-span-8 order-2 md:order-1">
+                <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+                  <strong className="text-slate-900 font-semibold">PT HARAPAN AMAR JAYA</strong> adalah Badan Hukum yang bergerak dalam Penyedia Sumber Daya Manusia dan Manajemen Fungsi Sumber Daya Manusia, Pelatihan Kerja Teknologi Informasi dan Komunikasi Perusahaan, Pelatihan Kerja Bisnis dan Manajemen Perusahaan, Pelatihan Kerja Perusahaan Lainnya, serta Pendidikan dan Pelatihan Pemerintah.
                 </p>
               </div>
-              <div className="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-xs">
-                <h3 className="font-bold text-[#1E1B4B] text-base sm:text-lg mb-1 flex items-center gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-[#1E1B4B]" />
-                  Misi
-                </h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed pl-7">
-                  Menyelenggarakan program pelatihan berkualitas sesuai standar industri, membekali peserta dengan keterampilan praktis, dan memperluas jaringan penempatan kerja.
-                </p>
+
+              {/* Column 2 (Right): Company Logo (Frameless, Larger, Responsive) */}
+              <div className="md:col-span-5 lg:col-span-4 flex justify-center md:justify-end order-1 md:order-2">
+                <div className="relative w-full max-w-[200px] sm:max-w-[280px] md:max-w-[440px] lg:max-w-[500px]">
+                  <Image
+                    src="/assets/brand/PT-Harapan-Amar-clear.svg"
+                    alt="PT Harapan Amar Jaya Logo"
+                    width={400}
+                    height={150}
+                    className="w-full h-auto object-contain"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="mb-8 space-y-4 border-t border-slate-200/80 pt-6">
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="h-5 w-5 text-[#F97316] shrink-0 mt-1" />
+                <div>
+                  <h3 className="font-bold text-[#1E1B4B] text-base sm:text-lg mb-1">
+                    Visi
+                  </h3>
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    Menjadi lembaga pelatihan terdepan yang menghasilkan sumber daya manusia kompeten, kreatif, dan berdaya saing tinggi.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="h-5 w-5 text-[#1E1B4B] shrink-0 mt-1" />
+                <div>
+                  <h3 className="font-bold text-[#1E1B4B] text-base sm:text-lg mb-1">
+                    Misi
+                  </h3>
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    Menyelenggarakan program pelatihan berkualitas sesuai standar industri, membekali peserta dengan keterampilan praktis, dan memperluas jaringan penempatan kerja.
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -159,7 +180,7 @@ export function AboutSection({ photoUrl, adminData }: AboutSectionProps = {}) {
 
           {/* Profile Detailed Content Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
+
             {/* Profile Narrative Sentences */}
             <div className="lg:col-span-7 space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
               <p>
@@ -179,7 +200,7 @@ export function AboutSection({ photoUrl, adminData }: AboutSectionProps = {}) {
                 <Briefcase className="h-4 w-4 text-[#F97316]" />
                 Rekam Jejak Karir Strategis
               </h4>
-              
+
               <ul className="space-y-2.5 text-xs sm:text-sm">
                 <li className="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-200/60 shadow-xs">
                   <span className="w-2 h-2 rounded-full bg-[#F97316] mt-1.5 shrink-0" />
