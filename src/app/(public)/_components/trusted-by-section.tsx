@@ -45,6 +45,17 @@ export function TrustedBySection({ mitraList }: TrustedBySectionProps) {
 
   return (
     <section className="py-12 sm:py-16 bg-white border-y border-slate-100 overflow-hidden relative">
+      {/* Abstract Top Curved Divider Matching HeroSection (#FAFAF9) */}
+      <div className="absolute top-0 left-0 right-0 w-full overflow-hidden leading-none pointer-events-none z-10">
+        <svg 
+          viewBox="0 0 1200 120" 
+          preserveAspectRatio="none" 
+          className="relative block w-full h-6 sm:h-10 lg:h-14 text-[#FAFAF9] fill-current"
+        >
+          <path d="M0,0 Q600,60 1200,0 L1200,0 L0,0 Z"></path>
+        </svg>
+      </div>
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 15 }}

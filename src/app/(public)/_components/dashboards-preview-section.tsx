@@ -100,6 +100,17 @@ export function DashboardsPreviewSection() {
 
   return (
     <section className="py-16 sm:py-20 lg:py-24 bg-[#0F172A] relative overflow-hidden">
+      {/* Abstract Top Curved Divider Matching TrustedBySection (White) */}
+      <div className="absolute top-0 left-0 right-0 w-full overflow-hidden leading-none pointer-events-none z-10">
+        <svg 
+          viewBox="0 0 1200 120" 
+          preserveAspectRatio="none" 
+          className="relative block w-full h-6 sm:h-10 lg:h-14 text-white fill-current"
+        >
+          <path d="M0,0 Q600,100 1200,0 L1200,0 L0,0 Z"></path>
+        </svg>
+      </div>
+
       {/* Background Gradients */}
       <div className="absolute top-0 right-0 w-[500px] sm:w-[800px] h-[500px] sm:h-[800px] bg-[#1E1B4B] rounded-full blur-[120px] opacity-50 -translate-y-1/2 translate-x-1/3 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-[#F97316]/20 rounded-full blur-[100px] opacity-30 translate-y-1/2 -translate-x-1/4 pointer-events-none" />
@@ -141,17 +152,6 @@ export function DashboardsPreviewSection() {
                         : "bg-slate-800/50 border-slate-700/60 hover:bg-slate-800/80 hover:border-slate-600"
                     }`}
                   >
-                    {/* Auto-rotate progress line for active tab */}
-                    {isActive && !isPaused && (
-                      <motion.div
-                        key={item.id}
-                        initial={{ width: "0%" }}
-                        animate={{ width: "100%" }}
-                        transition={{ duration: 6, ease: "linear" }}
-                        className="absolute bottom-0 left-0 h-1 bg-[#F97316]"
-                      />
-                    )}
-
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3.5">
                         <div
@@ -257,6 +257,17 @@ export function DashboardsPreviewSection() {
             </motion.div>
           </AnimatePresence>
         </div>
+      </div>
+
+      {/* Abstract Bottom Curved Divider Matching FinalCtaSection (#1E1B4B) */}
+      <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none pointer-events-none z-10 rotate-180">
+        <svg 
+          viewBox="0 0 1200 120" 
+          preserveAspectRatio="none" 
+          className="relative block w-full h-6 sm:h-10 lg:h-14 text-[#1E1B4B] fill-current"
+        >
+          <path d="M0,0 Q600,60 1200,0 L1200,0 L0,0 Z"></path>
+        </svg>
       </div>
     </section>
   );
