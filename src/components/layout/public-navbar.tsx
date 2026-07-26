@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -49,8 +50,15 @@ export function PublicNavbar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center gap-2">
-              <div className="h-10 w-10 rounded-lg bg-[#1E1B4B] flex items-center justify-center">
-                <span className="text-white font-bold font-display text-xl leading-none">HA</span>
+              <div className="h-10 w-10 rounded-lg flex items-center justify-center">
+                <Image
+                  src="/assets/brand/PT-Harapan-Amar.svg"
+                  alt="Harapan Amar Jaya"
+                  width={40}
+                  height={40}
+                  className="w-full h-auto object-contain rounded-md drop-shadow-md"
+                  priority
+                />
               </div>
               <span className="font-display font-bold text-lg tracking-tight text-[#1E1B4B]">
                 PT Harapan Amar Jaya
