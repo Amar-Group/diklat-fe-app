@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Tv, MapPin, Mail, Phone, MessageCircle } from "lucide-react";
 
 export function PublicFooter() {
@@ -10,8 +11,15 @@ export function PublicFooter() {
           {/* Brand Col */}
           <div className="lg:col-span-2 space-y-6">
             <Link href="/" className="flex items-center gap-3">
-              <div className="h-12 w-12 rounded-xl bg-[#F97316] flex items-center justify-center">
-                <span className="text-white font-bold font-display text-2xl leading-none">HA</span>
+              <div className="h-12 w-12 rounded-xl flex items-center justify-center">
+                <Image
+                  src="/assets/brand/PT-Harapan-Amar.svg"
+                  alt="Harapan Amar Jaya"
+                  width={40}
+                  height={40}
+                  className="w-full h-auto object-contain rounded-md drop-shadow-md"
+                  priority
+                />
               </div>
               <div>
                 <h3 className="font-display font-bold text-xl tracking-tight text-white">

@@ -23,10 +23,6 @@ export function FinalCtaSection() {
           transition={{ duration: 0.8 }}
           className="max-w-3xl mx-auto text-center"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-900/50 border border-indigo-500/30 mb-8 backdrop-blur-sm">
-            <span className="flex h-2 w-2 rounded-full bg-[#F97316] animate-pulse"></span>
-            <span className="text-sm font-medium text-indigo-200">Mulai Transformasi SDM Anda Hari Ini</span>
-          </div>
           
           <h2 className="font-display font-bold text-4xl sm:text-5xl text-white mb-8 leading-tight">
             Tingkatkan Kompetensi SDM Perusahaan Anda Bersama Kami
