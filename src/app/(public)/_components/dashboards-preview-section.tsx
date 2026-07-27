@@ -37,7 +37,7 @@ const PLATFORM_PREVIEWS: PreviewPlatform[] = [
     ],
     checkColor: "text-[#F97316]",
     buttonText: "Preview Platform HRD",
-    previewUrl: "/login",
+    previewUrl: "/admin",
   },
   {
     id: "peserta",
@@ -55,7 +55,7 @@ const PLATFORM_PREVIEWS: PreviewPlatform[] = [
     ],
     checkColor: "text-emerald-400",
     buttonText: "Preview LMS Peserta",
-    previewUrl: "/login",
+    previewUrl: "/admin",
   },
   {
     id: "instruktur",
@@ -73,7 +73,7 @@ const PLATFORM_PREVIEWS: PreviewPlatform[] = [
     ],
     checkColor: "text-blue-400",
     buttonText: "Preview Portal Instruktur",
-    previewUrl: "/login",
+    previewUrl: "/admin",
   },
 ];
 

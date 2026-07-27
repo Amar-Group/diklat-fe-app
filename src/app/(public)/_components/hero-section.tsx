@@ -1,12 +1,18 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { DemoVideoModal } from "@/components/shared/demo-video-modal";
 
 export function HeroSection() {
+  const [showDemoModal, setShowDemoModal] = useState(false);
+
   return (
+    <>
     <section className="relative min-h-screen flex items-center overflow-hidden bg-[#FAFAF9] pt-28 sm:pt-32 lg:pt-36 pb-16 sm:pb-20 lg:pb-24">
       {/* Background Decor Glows */}
       <div className="absolute top-0 right-0 -translate-y-12 translate-x-1/3 pointer-events-none">
@@ -48,17 +54,25 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-8 sm:mb-10 w-full"
+              className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-3.5 mb-8 sm:mb-10 w-full"
             >
-              <Button className="h-12 px-6 sm:px-8 bg-[#1E1B4B] hover:bg-[#312E81] text-white rounded-xl font-medium shadow-xl shadow-indigo-900/20 flex items-center justify-center gap-2 w-full sm:w-auto">
+              <Button 
+                className="h-12 px-6 sm:px-7 bg-[#1E1B4B] hover:bg-[#312E81] text-white rounded-xl font-medium shadow-xl shadow-indigo-900/20 flex items-center justify-center gap-2 w-full sm:w-auto"
+                onClick={() => setShowDemoModal(true)}
+              >
                 Jadwalkan Demo <ArrowRight className="h-4 w-4" />
               </Button>
-              <Button className="h-12 px-6 sm:px-8 bg-[#F97316] hover:bg-[#EA580C] text-white rounded-xl font-medium shadow-xl shadow-orange-500/20 flex items-center justify-center gap-2 w-full sm:w-auto">
+              <Button 
+                className="h-12 px-6 sm:px-7 bg-[#F97316] hover:bg-[#EA580C] text-white rounded-xl font-medium shadow-xl shadow-orange-500/20 flex items-center justify-center gap-2 w-full sm:w-auto"
+                onClick={() => { window.location.href = `mailto:ptharapanamarjaya@gmail.com?subject=${encodeURIComponent('Konsultasi Program Diklat')}`; }}
+              >
                 Konsultasi Program
               </Button>
-              <Button variant="outline" className="h-12 px-6 sm:px-8 border-slate-300 text-slate-700 hover:bg-slate-50 rounded-xl font-medium flex items-center justify-center gap-2 w-full sm:w-auto">
-                <BookOpen className="h-4 w-4" /> Katalog Pelatihan
-              </Button>
+              <Link href="/programs" className="w-full sm:w-auto">
+                <Button variant="outline" className="h-12 px-6 sm:px-7 border-slate-300 text-slate-700 hover:bg-slate-50 rounded-xl font-medium flex items-center justify-center gap-2 w-full sm:w-auto">
+                  <BookOpen className="h-4 w-4" /> Katalog Pelatihan
+                </Button>
+              </Link>
             </motion.div>
 
             <motion.div 
@@ -105,5 +119,8 @@ export function HeroSection() {
         </div>
       </div>
     </section>
+
+    <DemoVideoModal open={showDemoModal} onClose={() => setShowDemoModal(false)} />
+    </>
   );
 }

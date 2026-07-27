@@ -7,10 +7,14 @@ import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { RegistrationChoiceModal } from "@/components/shared/registration-choice-modal";
+import { DemoVideoModal } from "@/components/shared/demo-video-modal";
 
 export function PublicNavbar() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [activeDropdown, setActiveDropdown] = React.useState<string | null>(null);
+  const [showRegModal, setShowRegModal] = React.useState(false);
+  const [showDemoModal, setShowDemoModal] = React.useState(false);
   const pathname = usePathname();
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = React.useState(false);
@@ -38,6 +42,7 @@ export function PublicNavbar() {
   };
 
   return (
+    <>
     <motion.header 
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         isScrolled || isOpen
@@ -112,8 +117,8 @@ export function PublicNavbar() {
 
           {/* Desktop Actions */}
           <div className="hidden xl:flex items-center gap-3">
-            <Button variant="outline" className="border-slate-200 text-slate-700 hover:bg-slate-50">Daftar Peserta</Button>
-            <Button className="bg-[#F97316] hover:bg-[#EA580C] text-white shadow-md shadow-orange-500/20">Jadwalkan Demo</Button>
+            <Button variant="outline" className="border-slate-200 text-slate-700 hover:bg-slate-50" onClick={() => setShowRegModal(true)}>Daftar Peserta</Button>
+            <Button className="bg-[#F97316] hover:bg-[#EA580C] text-white shadow-md shadow-orange-500/20" onClick={() => setShowDemoModal(true)}>Jadwalkan Demo</Button>
           </div>
 
           {/* Mobile menu button */}
@@ -189,12 +194,17 @@ export function PublicNavbar() {
             </div>
             
             <div className="pt-6 flex flex-col gap-3 px-3">
-              <Button variant="outline" className="w-full justify-center">Daftar Peserta</Button>
-              <Button className="w-full justify-center bg-[#F97316] hover:bg-[#EA580C] text-white">Jadwalkan Demo</Button>
+              <Button variant="outline" className="w-full justify-center" onClick={() => { toggleMenu(); setShowRegModal(true); }}>Daftar Peserta</Button>
+              <Button className="w-full justify-center bg-[#F97316] hover:bg-[#EA580C] text-white" onClick={() => { toggleMenu(); setShowDemoModal(true); }}>Jadwalkan Demo</Button>
             </div>
           </div>
         </motion.div>
       )}
     </motion.header>
+
+    {/* Modals */}
+    <RegistrationChoiceModal open={showRegModal} onClose={() => setShowRegModal(false)} />
+    <DemoVideoModal open={showDemoModal} onClose={() => setShowDemoModal(false)} />
+    </>
   );
 }

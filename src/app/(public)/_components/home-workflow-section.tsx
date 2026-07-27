@@ -196,7 +196,10 @@ export function HomeWorkflowSection() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-              <Button className="w-full sm:w-auto bg-[#F97316] hover:bg-[#EA580C] text-white px-7 py-3 h-auto rounded-xl font-semibold text-sm sm:text-base shadow-lg shadow-orange-500/20 flex items-center justify-center gap-2 transition-transform hover:-translate-y-0.5 cursor-pointer">
+              <Button 
+                className="w-full sm:w-auto bg-[#F97316] hover:bg-[#EA580C] text-white px-7 py-3 h-auto rounded-xl font-semibold text-sm sm:text-base shadow-lg shadow-orange-500/20 flex items-center justify-center gap-2 transition-transform hover:-translate-y-0.5 cursor-pointer"
+                onClick={() => { window.location.href = `mailto:ptharapanamarjaya@gmail.com?subject=${encodeURIComponent('Konsultasi Alur Pelatihan Diklat')}`; }}
+              >
                 Konsultasi Alur Pelatihan <ArrowRight className="h-4.5 w-4.5" />
               </Button>
             </div>
