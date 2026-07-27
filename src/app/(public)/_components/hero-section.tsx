@@ -54,22 +54,22 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-8 sm:mb-10 w-full"
+              className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-3.5 mb-8 sm:mb-10 w-full"
             >
               <Button 
-                className="h-12 px-6 sm:px-8 bg-[#1E1B4B] hover:bg-[#312E81] text-white rounded-xl font-medium shadow-xl shadow-indigo-900/20 flex items-center justify-center gap-2 w-full sm:w-auto"
+                className="h-12 px-6 sm:px-7 bg-[#1E1B4B] hover:bg-[#312E81] text-white rounded-xl font-medium shadow-xl shadow-indigo-900/20 flex items-center justify-center gap-2 w-full sm:w-auto"
                 onClick={() => setShowDemoModal(true)}
               >
                 Jadwalkan Demo <ArrowRight className="h-4 w-4" />
               </Button>
               <Button 
-                className="h-12 px-6 sm:px-8 bg-[#F97316] hover:bg-[#EA580C] text-white rounded-xl font-medium shadow-xl shadow-orange-500/20 flex items-center justify-center gap-2 w-full sm:w-auto"
+                className="h-12 px-6 sm:px-7 bg-[#F97316] hover:bg-[#EA580C] text-white rounded-xl font-medium shadow-xl shadow-orange-500/20 flex items-center justify-center gap-2 w-full sm:w-auto"
                 onClick={() => { window.location.href = `mailto:ptharapanamarjaya@gmail.com?subject=${encodeURIComponent('Konsultasi Program Diklat')}`; }}
               >
                 Konsultasi Program
               </Button>
-              <Link href="/programs">
-                <Button variant="outline" className="h-12 px-6 sm:px-8 border-slate-300 text-slate-700 hover:bg-slate-50 rounded-xl font-medium flex items-center justify-center gap-2 w-full sm:w-auto">
+              <Link href="/programs" className="w-full sm:w-auto">
+                <Button variant="outline" className="h-12 px-6 sm:px-7 border-slate-300 text-slate-700 hover:bg-slate-50 rounded-xl font-medium flex items-center justify-center gap-2 w-full sm:w-auto">
                   <BookOpen className="h-4 w-4" /> Katalog Pelatihan
                 </Button>
               </Link>
