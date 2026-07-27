@@ -74,7 +74,19 @@ export function HomeWorkflowSection() {
   ];
 
   return (
-    <section className="pt-20 sm:pt-24 lg:pt-28 pb-16 sm:pb-20 bg-[#FAFAF9] relative overflow-hidden">
+    <section className="pt-0 pb-16 sm:pb-20 bg-[#FAFAF9] relative overflow-hidden">
+      {/* Abstract Top Wave Divider matching DashboardsPreviewSection (#0F172A) */}
+      <div className="w-full overflow-hidden leading-none pointer-events-none -mt-1 sm:-mt-2 mb-8 sm:mb-12 relative z-10">
+        <svg 
+          viewBox="0 0 1200 80" 
+          preserveAspectRatio="none" 
+          className="relative block w-full h-8 sm:h-12 lg:h-14 text-[#0F172A] fill-current"
+        >
+          {/* Path melengkung halus ke atas di tengah (~40% kedalaman/ketinggian) */}
+          <path d="M0,0 L1200,0 L1200,40 Q600,0 0,40 Z"></path>
+        </svg>
+      </div>
+
       {/* Background Soft Glow Accents */}
       <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-3xl pointer-events-none -z-0" />
       <div className="absolute bottom-10 -left-20 w-[400px] h-[400px] bg-orange-500/5 rounded-full blur-3xl pointer-events-none -z-0" />
