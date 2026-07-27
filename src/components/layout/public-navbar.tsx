@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -49,8 +50,15 @@ export function PublicNavbar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center gap-2">
-              <div className="h-10 w-10 rounded-lg bg-[#1E1B4B] flex items-center justify-center">
-                <span className="text-white font-bold font-display text-xl leading-none">HA</span>
+              <div className="h-10 w-10 rounded-lg flex items-center justify-center">
+                <Image
+                  src="/assets/brand/PT-Harapan-Amar.svg"
+                  alt="Harapan Amar Jaya"
+                  width={40}
+                  height={40}
+                  className="w-full h-auto object-contain rounded-md drop-shadow-md"
+                  priority
+                />
               </div>
               <span className="font-display font-bold text-lg tracking-tight text-[#1E1B4B]">
                 PT Harapan Amar Jaya
@@ -104,9 +112,6 @@ export function PublicNavbar() {
 
           {/* Desktop Actions */}
           <div className="hidden xl:flex items-center gap-3">
-            <Link href="/auth/login">
-              <Button variant="ghost" className="text-slate-600 hover:text-[#1E1B4B]">Login</Button>
-            </Link>
             <Button variant="outline" className="border-slate-200 text-slate-700 hover:bg-slate-50">Daftar Peserta</Button>
             <Button className="bg-[#F97316] hover:bg-[#EA580C] text-white shadow-md shadow-orange-500/20">Jadwalkan Demo</Button>
           </div>
@@ -184,9 +189,6 @@ export function PublicNavbar() {
             </div>
             
             <div className="pt-6 flex flex-col gap-3 px-3">
-              <Link href="/auth/login" className="w-full">
-                <Button variant="outline" className="w-full justify-center">Login</Button>
-              </Link>
               <Button variant="outline" className="w-full justify-center">Daftar Peserta</Button>
               <Button className="w-full justify-center bg-[#F97316] hover:bg-[#EA580C] text-white">Jadwalkan Demo</Button>
             </div>
