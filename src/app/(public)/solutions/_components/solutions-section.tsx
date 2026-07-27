@@ -102,7 +102,7 @@ export function SolutionsSection() {
             className="relative w-full aspect-[16/9] max-h-[480px] overflow-hidden"
           >
             <Image
-              src="/assets/images/program/solusi.webp"
+              src="/assets/images/program/solution.webp"
               alt="Premium Solusi Pelatihan Diklat"
               fill
               className="object-contain drop-shadow-xl"
