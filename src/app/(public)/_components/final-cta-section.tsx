@@ -1,11 +1,16 @@
 "use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CalendarDays } from "lucide-react";
 import { motion } from "framer-motion";
+import { DemoVideoModal } from "@/components/shared/demo-video-modal";
 
 export function FinalCtaSection() {
+  const [showDemoModal, setShowDemoModal] = useState(false);
+
   return (
+    <>
     <section className="py-24 bg-[#1E1B4B] relative overflow-hidden">
       {/* Abstract Background Elements */}
       <div className="absolute top-0 right-0 w-full h-full overflow-hidden pointer-events-none">
@@ -33,10 +38,17 @@ export function FinalCtaSection() {
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button className="h-14 px-8 bg-[#F97316] hover:bg-[#EA580C] text-white rounded-lg font-bold text-lg shadow-xl shadow-orange-500/20 flex items-center gap-2">
+            <Button 
+              className="h-14 px-8 bg-[#F97316] hover:bg-[#EA580C] text-white rounded-lg font-bold text-lg shadow-xl shadow-orange-500/20 flex items-center gap-2"
+              onClick={() => { window.location.href = `mailto:ptharapanamarjaya@gmail.com?subject=${encodeURIComponent('Konsultasi Program Diklat')}`; }}
+            >
               Konsultasi Sekarang <ArrowRight className="h-5 w-5" />
             </Button>
-            <Button variant="outline" className="h-14 px-8 border-indigo-500 text-white hover:bg-indigo-900/50 rounded-lg font-bold text-lg flex items-center gap-2 bg-transparent backdrop-blur-sm">
+            <Button 
+              variant="outline" 
+              className="h-14 px-8 border-indigo-500 text-white hover:bg-indigo-900/50 rounded-lg font-bold text-lg flex items-center gap-2 bg-transparent backdrop-blur-sm"
+              onClick={() => setShowDemoModal(true)}
+            >
               <CalendarDays className="h-5 w-5" /> Minta Demo Platform
             </Button>
           </div>
@@ -47,5 +59,8 @@ export function FinalCtaSection() {
         </motion.div>
       </div>
     </section>
+
+    <DemoVideoModal open={showDemoModal} onClose={() => setShowDemoModal(false)} />
+    </>
   );
 }
