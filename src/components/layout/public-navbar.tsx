@@ -112,9 +112,6 @@ export function PublicNavbar() {
 
           {/* Desktop Actions */}
           <div className="hidden xl:flex items-center gap-3">
-            <Link href="/auth/login">
-              <Button variant="ghost" className="text-slate-600 hover:text-[#1E1B4B]">Login</Button>
-            </Link>
             <Button variant="outline" className="border-slate-200 text-slate-700 hover:bg-slate-50">Daftar Peserta</Button>
             <Button className="bg-[#F97316] hover:bg-[#EA580C] text-white shadow-md shadow-orange-500/20">Jadwalkan Demo</Button>
           </div>
@@ -192,9 +189,6 @@ export function PublicNavbar() {
             </div>
             
             <div className="pt-6 flex flex-col gap-3 px-3">
-              <Link href="/auth/login" className="w-full">
-                <Button variant="outline" className="w-full justify-center">Login</Button>
-              </Link>
               <Button variant="outline" className="w-full justify-center">Daftar Peserta</Button>
               <Button className="w-full justify-center bg-[#F97316] hover:bg-[#EA580C] text-white">Jadwalkan Demo</Button>
             </div>
