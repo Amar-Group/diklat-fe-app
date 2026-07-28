@@ -16,7 +16,7 @@ export function FaqSection() {
     },
     {
       question: "Apakah peserta akan mendapatkan sertifikat?",
-      answer: "Ya. Setiap peserta yang menyelesaikan program dan lulus evaluasi akan mendapatkan sertifikat digital resmi yang dilengkapi dengan QR Code untuk verifikasi keaslian. Kami juga memfasilitasi program sertifikasi berstandar BNSP."
+      answer: "Ya. Setiap peserta yang menyelesaikan program dan lulus evaluasi akan mendapatkan sertifikat digital resmi yang dilengkapi dengan QR Code untuk verifikasi keaslian."
     },
     {
       question: "Apakah platform ini bisa digunakan khusus untuk internal perusahaan (B2B)?",

@@ -39,10 +39,10 @@ export default function InstructorsPage() {
     {
       id: "1",
       name: "Drs. Harun Arsyad, S.H, M.H.",
-      title: "Widyaiswara Ahli Utama BKN",
+      title: "Direktur Utama (Purnabakti)",
       category: "Widyaiswara",
       image: "assets/images/profil/dirut-pak-amar.svg",
-      bio: "Pengalaman 31+ tahun di BKN. Pakar hukum kepegawaian ASN, manajemen talenta, dan diklat kebudayaan kerja.",
+      bio: "Pengalaman 31+ tahun di bidang kepegawaian ASN. Pakar hukum kepegawaian ASN, manajemen talenta, dan diklat kebudayaan kerja.",
       badges: ["Hukum ASN", "Diklat PNS", "Manajemen Talenta"]
     }
   ];
@@ -245,7 +245,7 @@ export default function InstructorsPage() {
 
               <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
                 <p>
-                  Setiap narasumber kami melalui seleksi ketat untuk memastikan materi berkualitas tinggi yang sesuai dengan <span className="px-1.5 py-0.5 bg-amber-100/90 text-amber-950 font-semibold rounded-md border border-amber-200/70 inline-block my-0.5">Standar Kompetensi Kerja Nasional (SKKNI)</span> serta diampu oleh <span className="px-1.5 py-0.5 bg-indigo-100/90 text-[#1E1B4B] font-bold rounded-md border border-indigo-200/70 inline-block my-0.5">100% Praktisi Tersertifikasi BNSP & BKN</span>.
+                  Setiap narasumber kami melalui seleksi ketat untuk memastikan materi berkualitas tinggi yang sesuai dengan <span className="px-1.5 py-0.5 bg-amber-100/90 text-amber-950 font-semibold rounded-md border border-amber-200/70 inline-block my-0.5">Standar Kompetensi Kerja Nasional (SKKNI)</span> serta diampu oleh <span className="px-1.5 py-0.5 bg-indigo-100/90 text-[#1E1B4B] font-bold rounded-md border border-indigo-200/70 inline-block my-0.5">100% Praktisi & Pemateri Berpengalaman</span>.
                 </p>
                 <p>
                   Metode pembelajaran dikemas dengan <span className="px-1.5 py-0.5 bg-orange-100 text-orange-950 font-bold rounded-md border border-orange-200/80 inline-block my-0.5">Metode Praktis & Simulasi Riil</span>, diskusi interaktif, serta evaluasi mutu secara berkala guna mendukung peningkatan kinerja nyata.

@@ -23,7 +23,7 @@ export function AboutSection({ photoUrl, adminData }: AboutSectionProps = {}) {
     "/assets/images/profil/dirut-pak-amar.svg";
 
   const leaderName = adminData?.leaderName || "Drs Harun Arsyad, S.H, M.H.";
-  const leaderTitle = adminData?.leaderTitle || "Widyaiswara Ahli Utama BKN";
+  const leaderTitle = adminData?.leaderTitle || "Direktur Utama (Purnabakti)";
 
   return (
     <section id="about" className="pt-24 sm:pt-22 lg:pt-20 pb-16 sm:pb-20 lg:pb-24 bg-[#FAFAF9] relative">
@@ -64,7 +64,7 @@ export function AboutSection({ photoUrl, adminData }: AboutSectionProps = {}) {
                   </p>
                 </div>
                 <div className="px-3 py-1.5 rounded-lg bg-indigo-50 border border-indigo-100 text-indigo-950 font-bold text-xs shrink-0">
-                  31+ Thn PNS
+                  31+ Thn Pengabdian
                 </div>
               </div>
             </div>
@@ -158,19 +158,19 @@ export function AboutSection({ photoUrl, adminData }: AboutSectionProps = {}) {
                 <Award className="h-6 w-6 text-[#F97316]" />
               </div>
               <div>
-                <span className="text-xs font-bold text-[#F97316] uppercase tracking-wider block">Profil Manajer Utama</span>
+                <span className="text-xs font-bold text-[#F97316] uppercase tracking-wider block">Profil Direktur Utama</span>
                 <h3 className="font-display font-bold text-xl sm:text-2xl text-[#1E1B4B]">
                   Drs. Harun Arsyad, S.H, M.H.
                 </h3>
                 <p className="text-xs sm:text-sm font-medium text-slate-500">
-                  Widyaiswara Ahli Utama BKN (Pangkat Pembina Utama IV/e)
+                  Direktur Utama (Purnabakti)
                 </p>
               </div>
             </div>
 
             <div className="flex flex-wrap gap-2">
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-900 text-xs font-semibold border border-indigo-100">
-                <ShieldCheck className="h-3.5 w-3.5 text-[#F97316]" /> 31+ Tahun Pengabdian PNS
+                <ShieldCheck className="h-3.5 w-3.5 text-[#F97316]" /> 31+ Tahun Pengabdian ASN
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-orange-50 text-orange-900 text-xs font-semibold border border-orange-100">
                 <GraduationCap className="h-3.5 w-3.5 text-[#F97316]" /> Alumni IMMIM & UMI
@@ -190,7 +190,7 @@ export function AboutSection({ photoUrl, adminData }: AboutSectionProps = {}) {
                 Beliau menempuh pendidikan 6 tahun di <span className="px-1.5 py-0.5 bg-amber-100/90 text-amber-950 font-semibold rounded-md border border-amber-200/70 inline-block my-0.5">Pesantren Modern Pendidikan Al-Quran IMMIM Makassar</span>, dilanjutkan studi Sarjana di <span className="px-1.5 py-0.5 bg-amber-100/90 text-amber-950 font-semibold rounded-md border border-amber-200/70 inline-block my-0.5">Fakultas Hukum & Fakultas Syariah Universitas Muslim Indonesia (UMI) Makassar</span>. Semasa muda, beliau sangat aktif membina organisasi kepemudaan (KNPI, AMPI, FKPPI, Remaja Masjid) hingga dipercaya sebagai Pimpinan Kampus Pesantren IMMIM (1990–1995).
               </p>
               <p>
-                Mengabdi sebagai Pegawai Negeri Sipil selama <span className="px-1.5 py-0.5 bg-orange-100 text-orange-950 font-bold rounded-md border border-orange-200/80 inline-block my-0.5">31 tahun 4 bulan</span>, perjalanan karir beliau dihiasi pengalaman kepemimpinan yang sangat kaya baik di jabatan struktural maupun fungsional BKN (termasuk sebagai <span className="px-1.5 py-0.5 bg-indigo-100/90 text-[#1E1B4B] font-semibold rounded-md border border-indigo-200/70 inline-block my-0.5">Widyaiswara Ahli Utama BKN</span>). Dedikasi dan keahlian beliau dalam menyelenggarakan diklat, bimtek, serta karya ilmiah menjadi pilar utama dalam pengembangan standar kompetensi SDM di institusi kami.
+                Mengabdi sebagai Pegawai Negeri Sipil selama <span className="px-1.5 py-0.5 bg-orange-100 text-orange-950 font-bold rounded-md border border-orange-200/80 inline-block my-0.5">31 tahun 4 bulan</span>, perjalanan karir beliau dihiasi pengalaman kepemimpinan yang sangat kaya baik di jabatan struktural maupun fungsional kedinasan (termasuk sebagai <span className="px-1.5 py-0.5 bg-indigo-100/90 text-[#1E1B4B] font-semibold rounded-md border border-indigo-200/70 inline-block my-0.5">Widyaiswara Ahli Utama (Purnabakti)</span>). Dedikasi dan keahlian beliau dalam menyelenggarakan diklat, bimtek, serta karya ilmiah menjadi pilar utama dalam pengembangan standar kompetensi SDM di institusi kami.
               </p>
             </div>
 
@@ -205,28 +205,28 @@ export function AboutSection({ photoUrl, adminData }: AboutSectionProps = {}) {
                 <li className="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-200/60 shadow-xs">
                   <span className="w-2 h-2 rounded-full bg-[#F97316] mt-1.5 shrink-0" />
                   <div>
-                    <span className="font-bold text-[#1E1B4B]">Widyaiswara Ahli Utama BKN</span>
-                    <p className="text-slate-500 text-xs">Pangkat Pembina Utama IV/e (2021 – 2026)</p>
+                    <span className="font-bold text-[#1E1B4B]">Widyaiswara Ahli Utama (Purnabakti)</span>
+                    <p className="text-slate-500 text-xs">Pangkat Pembina Utama IV/e</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-200/60 shadow-xs">
                   <span className="w-2 h-2 rounded-full bg-[#1E1B4B] mt-1.5 shrink-0" />
                   <div>
-                    <span className="font-bold text-[#1E1B4B]">Kepala Kantor Regional IV BKN Makassar</span>
-                    <p className="text-slate-500 text-xs">Mengawasi & Mengelola Manajerial BKN Regional (2019 – 2021)</p>
+                    <span className="font-bold text-[#1E1B4B]">Kepala Kantor Regional IV Makassar</span>
+                    <p className="text-slate-500 text-xs">Mengawasi & Mengelola Manajerial Regional (2019 – 2021)</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-200/60 shadow-xs">
                   <span className="w-2 h-2 rounded-full bg-[#1E1B4B] mt-1.5 shrink-0" />
                   <div>
-                    <span className="font-bold text-[#1E1B4B]">Direktur Status & Kedudukan Pegawai BKN</span>
-                    <p className="text-slate-500 text-xs">Direktorat BKN Jakarta (2018)</p>
+                    <span className="font-bold text-[#1E1B4B]">Direktur Status & Kedudukan Pegawai</span>
+                    <p className="text-slate-500 text-xs">Direktorat Jakarta (2018)</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3 bg-white p-3 rounded-xl border border-slate-200/60 shadow-xs">
                   <span className="w-2 h-2 rounded-full bg-[#1E1B4B] mt-1.5 shrink-0" />
                   <div>
-                    <span className="font-bold text-[#1E1B4B]">Kapus Konsultasi Bantuan Hukum BKN</span>
+                    <span className="font-bold text-[#1E1B4B]">Kapus Konsultasi Bantuan Hukum</span>
                     <p className="text-slate-500 text-xs">Jabatan Pimpinan Tinggi Pratama (2016 – 2018)</p>
                   </div>
                 </li>
