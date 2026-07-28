@@ -15,11 +15,6 @@ interface TrustedBySectionProps {
 
 const DEFAULT_MITRA_LIST: MitraData[] = [
   {
-    id: "bkn",
-    name: "BKN",
-    logoUrl: "/assets/mitra/BKN.png",
-  },
-  {
     id: "bumn",
     name: "BUMN",
     logoUrl: "/assets/mitra/BUMN.webp",

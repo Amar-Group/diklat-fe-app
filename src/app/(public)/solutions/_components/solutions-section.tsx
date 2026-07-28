@@ -55,7 +55,7 @@ export function SolutionsSection() {
         "LMS + Online + Offline",
         "Progress terintegrasi penuh",
         "Penjadwalan otomatis",
-        "Sertifikasi digital BNSP"
+        "Sertifikasi digital resmi"
       ]
     }
   ];

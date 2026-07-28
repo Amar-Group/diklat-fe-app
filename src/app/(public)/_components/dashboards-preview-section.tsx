@@ -51,7 +51,7 @@ const PLATFORM_PREVIEWS: PreviewPlatform[] = [
       "Video pembelajaran anti-skip & modul interaktif",
       "Tracking progress belajar real-time",
       "Kuis, tugas, & evaluasi otomatis",
-      "Akses & klaim sertifikat digital BNSP",
+      "Akses & klaim sertifikat digital resmi",
     ],
     checkColor: "text-emerald-400",
     buttonText: "Preview LMS Peserta",
