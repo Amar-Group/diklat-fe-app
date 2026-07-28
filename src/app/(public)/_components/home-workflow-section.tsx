@@ -64,7 +64,7 @@ export function HomeWorkflowSection() {
     },
     {
       num: "06",
-      title: "Sertifikasi BNSP",
+      title: "Sertifikasi Resmi",
       desc: "E-sertifikat terverifikasi QR Code otomatis.",
       icon: Award,
       bgColor: "bg-amber-50",

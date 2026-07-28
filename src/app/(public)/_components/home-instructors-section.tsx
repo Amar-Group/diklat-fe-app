@@ -10,8 +10,8 @@ export function HomeInstructorsSection() {
   const highlights = [
     {
       icon: ShieldCheck,
-      title: "Widyaiswara Ahli BKN & Pemerintah",
-      desc: "Pengajar senior berpengalaman dari BKN dan kementerian terkait.",
+      title: "Widyaiswara Ahli & Kedinasan",
+      desc: "Pengajar senior berpengalaman dari kementerian dan instansi terkait.",
       bgColor: "bg-emerald-50",
       borderColor: "border-emerald-100",
       iconColor: "text-emerald-600"

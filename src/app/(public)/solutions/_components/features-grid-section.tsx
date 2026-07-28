@@ -125,7 +125,7 @@ export function FeaturesGridSection() {
               </div>
               <div className="flex items-start gap-3 text-slate-700 text-sm sm:text-base font-medium">
                 <CheckCircle2 className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" />
-                <span>Sistem Sertifikasi & Kelulusan Berbasis Kompetensi BNSP</span>
+                <span>Sistem Sertifikasi & Kelulusan Berbasis Kompetensi Resmi</span>
               </div>
               <div className="flex items-start gap-3 text-slate-700 text-sm sm:text-base font-medium">
                 <CheckCircle2 className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" />

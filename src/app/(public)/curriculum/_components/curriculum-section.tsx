@@ -109,7 +109,7 @@ export function CurriculumSection() {
             "Pemrograman Website & Aplikasi Modern",
             "Multimedia, Database & System Analyst",
             "Keamanan Informasi & Tata Kelola IT",
-            "Sertifikasi Kompetensi BNSP / Internal"
+            "Sertifikasi Kompetensi Resmi / Digital"
           ]
         },
         {
