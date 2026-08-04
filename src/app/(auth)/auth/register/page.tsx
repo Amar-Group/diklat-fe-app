@@ -30,7 +30,6 @@ export default function RegisterPage() {
   const [showPass, setShowPass] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
 
   const {
     register,
@@ -51,11 +50,8 @@ export default function RegisterPage() {
       });
 
       if (res.success) {
-        setSuccess(true);
-        notification.add("Berhasil mendaftar! Anda akan diarahkan ke halaman login.", "success");
-        setTimeout(() => {
-          router.push("/auth/login");
-        }, 3000);
+        notification.add("Berhasil mendaftar! Mengarahkan ke halaman verifikasi email...", "success");
+        router.push(`/auth/verify-email?email=${encodeURIComponent(data.email)}`);
       } else {
         notification.add(res.message || "Gagal melakukan registrasi", "error");
       }
@@ -65,23 +61,6 @@ export default function RegisterPage() {
       setLoading(false);
     }
   };
-
-  if (success) {
-    return (
-      <div className="min-h-screen bg-[#F8F9FD] flex items-center justify-center p-6">
-        <div className="bg-white border border-slate-200 rounded-2xl shadow-sm p-10 max-w-md w-full text-center">
-          <div className="size-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Check className="size-8 text-green-600" />
-          </div>
-          <h2 className="text-2xl font-display font-bold text-slate-800 mb-2">Pendaftaran Berhasil!</h2>
-          <p className="text-slate-500 text-sm mb-6">Akun Anda telah berhasil dibuat. Anda akan dialihkan ke halaman login secara otomatis dalam 3 detik.</p>
-          <Link href="/auth/login" className="block w-full py-2.5 bg-[#F97316] hover:bg-[#EA580C] text-white font-semibold rounded-xl text-sm transition-colors text-center">
-            Menuju Halaman Login
-          </Link>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-[#F8F9FD] flex items-center justify-center p-6 py-10">

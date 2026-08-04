@@ -30,10 +30,8 @@ export default function LoginPage() {
         setAuth(res.data.token, res.data.user);
         if (res.data.user.role_code === "PARTICIPANT") {
           router.push("/my-learning"); // Peserta ke LMS Portal
-        } else if (res.data.user.role_code === "INSTRUCTOR") {
-          router.push("/logistics/sessions"); // Instruktur ke Jadwal Sesi
         } else {
-          router.push("/dashboard"); // HRD / Admin ke Dashboard Analitik
+          router.push("/dashboard"); // Instruktur / HRD / Admin ke Dashboard Analitik
         }
       }
     } catch (err: any) {

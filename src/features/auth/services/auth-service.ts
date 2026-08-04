@@ -21,4 +21,20 @@ export class AuthService {
       skipAuth: true, // register is a public endpoint
     });
   }
+
+  static async verifyOtp(payload: { email: string; otp: string }): Promise<any> {
+    return apiClient<any>("/api/users/verify-otp", {
+      method: "POST",
+      body: JSON.stringify(payload),
+      skipAuth: true,
+    });
+  }
+
+  static async resendOtp(payload: { email: string }): Promise<any> {
+    return apiClient<any>("/api/users/resend-otp", {
+      method: "POST",
+      body: JSON.stringify(payload),
+      skipAuth: true,
+    });
+  }
 }
