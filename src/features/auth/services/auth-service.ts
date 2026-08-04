@@ -1,5 +1,5 @@
 import { apiClient } from "@/services/api/client";
-import type { LoginRequest, LoginResponse } from "../types";
+import type { LoginRequest, LoginResponse, RegisterRequest } from "../types";
 
 /**
  * Auth API service — handles login call to BE.
@@ -11,6 +11,14 @@ export class AuthService {
       method: "POST",
       body: JSON.stringify(payload),
       skipAuth: true, // login is a public endpoint
+    });
+  }
+
+  static async register(payload: RegisterRequest): Promise<any> {
+    return apiClient<any>("/api/users/register", {
+      method: "POST",
+      body: JSON.stringify(payload),
+      skipAuth: true, // register is a public endpoint
     });
   }
 }
