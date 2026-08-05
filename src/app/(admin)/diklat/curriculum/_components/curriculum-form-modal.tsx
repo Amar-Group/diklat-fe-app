@@ -111,12 +111,11 @@ export function CurriculumFormModal() {
           <label className="block text-sm font-medium text-foreground">
             Judul Bab / Materi <span className="text-red-500">*</span>
           </label>
-          <input
-            type="text"
+          <textarea
             value={formTitle}
             onChange={(e) => setFormTitle(e.target.value)}
             placeholder="Contoh: Keterampilan Dasar Komunikasi"
-            className={inputCls}
+            className={`${inputCls} min-h-[100px] resize-y whitespace-pre-wrap`}
             disabled={isSaving}
           />
         </div>

@@ -102,11 +102,10 @@ export function ModuleFormModal() {
           <label className="block text-sm font-medium text-foreground">
             Judul <span className="text-red-500">*</span>
           </label>
-          <input
-            type="text"
+          <textarea
             value={formTitle}
             onChange={(e) => setFormTitle(e.target.value)}
-            className={inputCls}
+            className={`${inputCls} min-h-[100px] resize-y whitespace-pre-wrap`}
             disabled={isSaving}
           />
         </div>
