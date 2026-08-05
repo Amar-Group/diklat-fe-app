@@ -138,7 +138,7 @@ export function ProgramDetailModal({ program, open, onClose }: ProgramDetailModa
                   <span className="w-5 h-5 rounded-full bg-[#F97316] text-white flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">
                     {idx + 1}
                   </span>
-                  <span className="leading-snug">{item}</span>
+                  <span className="leading-snug whitespace-pre-wrap">{item}</span>
                 </div>
               ))}
             </div>
