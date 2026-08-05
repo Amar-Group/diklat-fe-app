@@ -21,3 +21,11 @@ export type LoginResponse = {
   };
   message: string;
 };
+
+export type RegisterRequest = {
+  name: string;
+  email: string;
+  phone_number: string;
+  password: string;
+};
+
