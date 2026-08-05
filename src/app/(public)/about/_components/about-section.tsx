@@ -163,7 +163,7 @@ export function AboutSection({ photoUrl, adminData }: AboutSectionProps = {}) {
                   Drs. Harun Arsyad, S.H, M.H.
                 </h3>
                 <p className="text-xs sm:text-sm font-medium text-slate-500">
-                  Direktur Utama (Purnabakti)
+                  Direktur Utama (Purnabakti WIDYAISWARA AHLI UTAMA)
                 </p>
               </div>
             </div>
@@ -212,21 +212,21 @@ export function AboutSection({ photoUrl, adminData }: AboutSectionProps = {}) {
                 <li className="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-200/60 shadow-xs">
                   <span className="w-2 h-2 rounded-full bg-[#1E1B4B] mt-1.5 shrink-0" />
                   <div>
-                    <span className="font-bold text-[#1E1B4B]">Kepala Kantor Regional IV Makassar</span>
+                    <span className="font-bold text-[#1E1B4B]">Kepala Kantor Regional IV BKN Makassar</span>
                     <p className="text-slate-500 text-xs">Mengawasi & Mengelola Manajerial Regional (2019 – 2021)</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-200/60 shadow-xs">
                   <span className="w-2 h-2 rounded-full bg-[#1E1B4B] mt-1.5 shrink-0" />
                   <div>
-                    <span className="font-bold text-[#1E1B4B]">Direktur Status & Kedudukan Pegawai</span>
+                    <span className="font-bold text-[#1E1B4B]">Direktur Status & Kedudukan Pegawai BKN</span>
                     <p className="text-slate-500 text-xs">Direktorat Jakarta (2018)</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3 bg-white p-3 rounded-xl border border-slate-200/60 shadow-xs">
                   <span className="w-2 h-2 rounded-full bg-[#1E1B4B] mt-1.5 shrink-0" />
                   <div>
-                    <span className="font-bold text-[#1E1B4B]">Kapus Konsultasi Bantuan Hukum</span>
+                    <span className="font-bold text-[#1E1B4B]">Kepala Pusat Konsultasi Bantuan Hukum BKN</span>
                     <p className="text-slate-500 text-xs">Jabatan Pimpinan Tinggi Pratama (2016 – 2018)</p>
                   </div>
                 </li>
