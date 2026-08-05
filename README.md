@@ -44,5 +44,6 @@ Open [http://localhost:3000](http://localhost:3000) to see the app.
 - ✅ 23 komponen UI (Shadcn/UI base-nova)
 - ✅ Showcase: base-ui, extended-ui, charts, forms, tables, icons
 - ✅ Halaman auth, error, dan standalone
+- ✅ Otentikasi dan Registrasi Peserta (Termasuk validasi email OTP)
 - 🏗️ Landing page diklat (dalam pengembangan)
-- 🏗️ Feature modules, API layer, authentication
+- 🏗️ Feature modules, API layer
